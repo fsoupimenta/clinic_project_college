@@ -10,6 +10,7 @@ public class Pessoa {
         this.email = email;
     }
 
+    @Override
     public String toString() {
         return getDescricao();
     }

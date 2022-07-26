@@ -4,21 +4,22 @@ import java.util.ArrayList;
 public class Consulta {
     private Dentista dentista;
     private Paciente paciente;
-    private ArrayList<Procedimento> procedimento;
+    private ArrayList<Procedimento> listaProcedimento;
 
     public Consulta(Dentista dentista, Paciente paciente){
         this.dentista = dentista;
         this.paciente = paciente;
-        this.procedimento = new ArrayList<Procedimento>();
+        this.listaProcedimento = new ArrayList<Procedimento>();
     }
 
+    @Override
     public String toString() {
-        return getDescricao();
+        return getConsulta();
     }
 
     public boolean addProcedimento(Procedimento procedimento) {
         this.dentista.calculaSalario(procedimento.getPreco());
-        if(this.procedimento.add(procedimento)) {
+        if(this.listaProcedimento.add(procedimento)) {
             return true;
         }else{
             return false;
@@ -26,7 +27,7 @@ public class Consulta {
     }
 
     public boolean removeProcedimento(Procedimento procedimento) {
-        if(this.procedimento.remove(procedimento)){
+        if(this.listaProcedimento.remove(procedimento)){
             return true;
         }else{
             return false;
@@ -34,7 +35,7 @@ public class Consulta {
     }
 
     public boolean verificaProcedimento(Procedimento procedimento) {
-        if(this.procedimento.indexOf(procedimento) < 0) {
+        if(this.listaProcedimento.indexOf(procedimento) < 0) {
             return false;
         }
         return true;
@@ -45,21 +46,21 @@ public class Consulta {
     }
 
     public Dentista getDentista() {
-        return this.dentista.getObjectDentista();
+        return this.dentista.getDentista();
     }
 
     public double valorConsulta() {
         double total=0;
-        for(int i=0; i<this.procedimento.size();i++) {
-            total = total + this.procedimento.get(i).getPreco();
+        for(int i = 0; i<this.listaProcedimento.size(); i++) {
+            total = total + this.listaProcedimento.get(i).getPreco();
         }
         return total;
     }
 
-    public String getDescricao() {
+    public String getConsulta() {
         String consultas = new String();
-        for(int i=0;i<this.procedimento.size();i++) {
-            consultas = this.procedimento.get(i).getNome() + ", " + consultas;
+        for(int i = 0; i<this.listaProcedimento.size(); i++) {
+            consultas = this.listaProcedimento.get(i).getNome() + ", " + consultas;
         }
         return consultas + "para o paciente: " + this.paciente.getNome() +
                 " realizada pelo Dr(a): " + this.dentista.getNome();

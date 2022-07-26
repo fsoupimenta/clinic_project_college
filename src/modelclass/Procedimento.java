@@ -18,8 +18,9 @@ public class Procedimento {
         this.codigo = procedimento.codigo;
     }
 
+    @Override
     public String toString() {
-        return getDescricao();
+        return getProcedimento();
     }
 
     public String getNome() {
@@ -34,7 +35,7 @@ public class Procedimento {
         return this.codigo;
     }
 
-    public String getDescricao() {
+    public String getProcedimento() {
         return this.nome + " -Preco: " + this.preco + "R$";
     }
 

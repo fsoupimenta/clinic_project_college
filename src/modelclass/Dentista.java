@@ -14,18 +14,16 @@ public abstract class Dentista extends Pessoa {
         super(dentista.nome, dentista.email);
         this.cro = dentista.cro;
     }
-    public String toString() {
-        return getDescricao();
-    }
+
     public String getCro() {
         return this.cro;
     }
+
     public abstract double calculaSalario(double valor);
     public abstract double getSalario();
-    public abstract String getDentista();
-    public abstract Dentista getObjectDentista();
+    public abstract Dentista getDentista();
+    @Override
     public String getDescricao() {
-        return "Dr(a): " + this.nome + " -Email: " +
-                this.email + " -CRO: " + this.cro;
+        return "Dr(a): " + super.getDescricao()+ " -CRO: " + this.cro;
     }
 }
