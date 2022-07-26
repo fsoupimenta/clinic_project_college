@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 
 public class Pessoa {
     protected String nome;

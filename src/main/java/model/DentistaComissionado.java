@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 
 public class DentistaComissionado extends Dentista {
     private double porcentagemComissao;

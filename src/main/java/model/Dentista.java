@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 
 public abstract class Dentista extends Pessoa {
     protected String cro;

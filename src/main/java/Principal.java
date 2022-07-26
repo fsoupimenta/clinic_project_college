@@ -1,8 +1,6 @@
-package modeltest;
-
 import java.time.LocalDate;
 
-import modelclass.*;
+import model.*;
 
 public class Principal {
 

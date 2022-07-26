@@ -37,7 +37,6 @@
         </dependency>
     </dependencies>
     <properties>
-        <exec.mainClass>modeltest.Principal</exec.mainClass>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
     </properties>

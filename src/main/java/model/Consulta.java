@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 import java.util.ArrayList;
 
 public class Consulta {

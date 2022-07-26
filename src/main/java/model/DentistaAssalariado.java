@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 
 public class DentistaAssalariado extends Dentista {
     public DentistaAssalariado (String nome, String email, String cro, double salario) {

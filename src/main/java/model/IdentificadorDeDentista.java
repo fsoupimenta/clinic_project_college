@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 
 public class IdentificadorDeDentista {
     public static String identificaDentista(Dentista dentista){
