@@ -8,6 +8,6 @@ class AgendaTest {
     @Test
     void verifica_qtdConsultas() {
         Agenda a1 = new Agenda();
-        Assertions.assertEquals(a1.qtdConsultas(), 0);
+        Assertions.assertEquals(a1.faturamento(), 0);
     }
 }
