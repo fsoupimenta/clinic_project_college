@@ -7,11 +7,13 @@ public class Paciente extends Pessoa {
     private LocalDate dataDeNascimento;
     private static int proximoCodigo = 0;
     private static DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private boolean sexo;
 
     public Paciente(String nome, String email, LocalDate dataDeNascimento) {
         super(nome, email);
         this.dataDeNascimento = dataDeNascimento;
         this.codigo = " P" + ++proximoCodigo;
+        this.sexo = true;
     }
 
     public Paciente(Paciente paciente) {
