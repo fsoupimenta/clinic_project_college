@@ -4,10 +4,12 @@ public class Pessoa {
     protected String nome;
     protected String email;
     protected String codigo;
+    protected boolean sexo;
 
-    public Pessoa(String nome, String email) {
+    public Pessoa(String nome, String email, boolean sexo) {
         this.nome = nome;
         this.email = email;
+        this.sexo = sexo;
     }
 
     @Override

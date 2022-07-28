@@ -12,11 +12,11 @@ class ConsultaTest {
         DentistaAssalariado d1 =
                 new DentistaAssalariado("Rafael da Silva",
                         "rfsilva@email.com",
-                        "1111", 900);
+                        "1111", 900, true);
         Paciente p1 =
                 new Paciente("Jose da Silva",
                         "jssilva@email.com",
-                        LocalDate.of(2001, 04, 14));
+                        LocalDate.of(2001, 04, 14), true);
         Procedimento x1 =
                 new Procedimento("Tratamento de Canal", 800);
         Consulta c1 = new Consulta(d1, p1);

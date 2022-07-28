@@ -8,27 +8,27 @@ public class main {
         DentistaAssalariado d1 =
                 new DentistaAssalariado("Rafael da Silva",
                         "rfsilva@email.com",
-                        "1111", 900);
+                        "1111", 900, true);
         DentistaComissionado d2 =
-                new DentistaComissionado("Lucas da Silva",
+                new DentistaComissionado("Lucia da Silva",
                         "lcsilva@email.com",
-                        "1112", 0.3);
+                        "1112", 0.4, false);
         Paciente p1 =
                 new Paciente("Jose da Silva",
                         "jssilva@email.com",
-                        LocalDate.of(2001, 04, 14));
+                        LocalDate.of(2001, 04, 14), true);
         Paciente p2 =
                 new Paciente("Antonio da Silva",
                         "antoniosilva@email.com",
-                        LocalDate.of(2001, 04, 13));
+                        LocalDate.of(2001, 04, 13), true);
         Paciente p3 =
                 new Paciente("Gustavo de Sa",
                         "gustavodesa@email.com",
-                        LocalDate.of(1990, 06, 15));
+                        LocalDate.of(1990, 06, 15), true);
         Paciente p4 =
-                new Paciente("Henrique Silveira",
+                new Paciente("Rafaela Silveira",
                         "henriquesilveira@email.com",
-                        LocalDate.of(1994, 02, 12));
+                        LocalDate.of(1994, 02, 12), false);
         Procedimento x1 =
                 new Procedimento("Tratamento de Canal", 800);
         Procedimento x2 =
@@ -133,6 +133,10 @@ public class main {
         System.out.println("Salario do Dr(a) " + d2.getNome() + ": " + d2.getSalario());
         System.out.println("O/A Dr(a)" + d1.getNome() + " " +IdentificadorDeDentista.identificaDentista(d1));
         System.out.println("O/A Dr(a)" + d2.getNome() + " " +IdentificadorDeDentista.identificaDentista(d2));
+        try {
+            d2.setPorcentagemComissao(0.6);
+        } catch (ErroComissao e){
+            e.printStackTrace();
+        }
     }
-
 }

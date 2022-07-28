@@ -9,9 +9,10 @@ class DentistaAssalariadoTest {
     DentistaAssalariado d1;
     @BeforeEach
     public void init() {
-        d1 = new DentistaAssalariado("Rafael da Silva",
+        d1 =
+                new DentistaAssalariado("Rafael da Silva",
                         "rfsilva@email.com",
-                        "1111", 900);
+                        "1111", 900, true);
     }
     @Test
     void verifica_descricao() {
