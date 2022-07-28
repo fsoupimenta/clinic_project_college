@@ -34,11 +34,12 @@ public class DentistaComissionado extends Dentista {
         return this.porcentagemComissao;
     }
 
-    public void setPorcentagemComissao(double porcentagemComissao) throws ErroComissao{
+    public boolean setPorcentagemComissao(double porcentagemComissao) throws ErroComissao{
         if (porcentagemComissao > 0.5 || porcentagemComissao < 0) {
             throw new ErroComissao("Porcentagem Invalida");
         }
         this.porcentagemComissao = porcentagemComissao;
+        return true;
     }
 
     @Override

@@ -27,7 +27,7 @@ public class main {
                         LocalDate.of(1990, 06, 15), true);
         Paciente p4 =
                 new Paciente("Rafaela Silveira",
-                        "henriquesilveira@email.com",
+                        "rafaelasilveira@email.com",
                         LocalDate.of(1994, 02, 12), false);
         Procedimento x1 =
                 new Procedimento("Tratamento de Canal", 800);

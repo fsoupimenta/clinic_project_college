@@ -18,18 +18,33 @@ class DentistaComissionadoTest {
                         "1112", 0.3, false);
     }
     @Test
-        void verifica_Descricao() {
+    public void verifica_descricao() {
         Assertions.assertEquals(d1.getDescricao(), "Dra. Lucia da Silva " +
                 "-Email: lcsilva@email.com -CRO: 1112");
     }
 
     @Test
-       void whenExceptionThrows_thrownEqualsTrue(){
+    public void shouldFailSetPorcentagemComissao_maxLimit(){
         assertThrows(ErroComissao.class, ()->{
-           d1.setPorcentagemComissao(0.6);
-           d1.setPorcentagemComissao(0.7);
+           d1.setPorcentagemComissao(0.51);
         });
     }
 
+    @Test
+    public void shouldNotFailSetPorcentagemComissao_maxLimit(){
+        Assertions.assertEquals(d1.setPorcentagemComissao(0.5), true);
+    }
+
+    @Test
+    public void shouldFailSetPorcentagemComissao_minLimit(){
+        assertThrows(ErroComissao.class, ()->{
+           d1.setPorcentagemComissao(-0.01);
+        });
+    }
+
+   @Test
+    public void shouldNotFailSetPorcentagemComissao_minLimit(){
+        Assertions.assertEquals(d1.setPorcentagemComissao(0), true);
+    }
 
 }
