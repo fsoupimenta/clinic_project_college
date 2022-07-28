@@ -1,5 +1,7 @@
 package model;
 
+import interfaces.TratamentoEspecifico;
+
 public abstract class Dentista extends Pessoa implements TratamentoEspecifico {
     protected String cro;
     protected double salario;
@@ -19,7 +21,7 @@ public abstract class Dentista extends Pessoa implements TratamentoEspecifico {
         return this.cro;
     }
 
-    public abstract double calculaSalario(double valor);
+    public abstract void setSalario(double valor);
     public abstract double getSalario();
     public abstract Dentista getDentista();
     @Override

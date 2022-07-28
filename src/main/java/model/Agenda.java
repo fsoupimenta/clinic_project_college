@@ -35,7 +35,7 @@ public class Agenda {
         return true;
     }
 
-    public double faturamento() {
+    public double getFaturamento() {
         double totalSalario=0;
         double totalRecebido =0;
         String nome = new String();

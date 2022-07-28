@@ -7,7 +7,7 @@ import java.time.LocalDate;
 class PacienteTest {
 
     @Test
-    void verifica_descricao() {
+    void checkDescription() {
         Paciente p1 =
                 new Paciente("Jose da Silva",
                         "jssilva@email.com",

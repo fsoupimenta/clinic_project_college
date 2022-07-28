@@ -8,7 +8,7 @@ import java.time.LocalDate;
 class ConsultaTest {
 
     @Test
-    void verifica_valorConsulta() {
+    public void whenProcedureAdd_shouldCalculateConsult(){
         DentistaAssalariado d1 =
                 new DentistaAssalariado("Rafael da Silva",
                         "rfsilva@email.com",

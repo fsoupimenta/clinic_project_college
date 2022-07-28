@@ -21,8 +21,27 @@ public class Pessoa {
         return this.nome;
     }
 
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
     public String getEmail() {
         return this.email;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public String getSexo(){
+        if(this.sexo){
+            return "Masculino";
+        }
+        return "Feminino";
+    }
+
+    public void setSexo(boolean sexo){
+        this.sexo = sexo;
     }
 
     public String getCodigo() {

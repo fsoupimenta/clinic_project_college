@@ -1,13 +1,13 @@
 package model;
 
-import javax.swing.*;
+import exceptions.ErroComissao;
 
 public class DentistaComissionado extends Dentista {
     private double porcentagemComissao;
     private double salario=0;
 
     public DentistaComissionado(String nome, String email, String cro, double porcentagemComissao, boolean sexo)
-    throws ErroComissao{
+    throws ErroComissao {
         super(nome, email, cro, sexo);
         this.setPorcentagemComissao(porcentagemComissao);
         this.salario=0;
@@ -20,9 +20,8 @@ public class DentistaComissionado extends Dentista {
     }
 
     @Override
-    public double calculaSalario(double valor) {
+    public void setSalario(double valor) {
         this.salario = (this.porcentagemComissao * valor) + this.salario;
-        return this.salario;
     }
 
     @Override

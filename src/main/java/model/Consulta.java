@@ -14,11 +14,11 @@ public class Consulta {
 
     @Override
     public String toString() {
-        return getConsulta();
+        return getDescricao();
     }
 
     public boolean addProcedimento(Procedimento procedimento) {
-        this.dentista.calculaSalario(procedimento.getPreco());
+        this.dentista.setSalario(procedimento.getPreco());
         if(this.listaProcedimento.add(procedimento)) {
             return true;
         }else{
@@ -45,8 +45,16 @@ public class Consulta {
         return new Paciente(this.paciente);
     }
 
+    public void setPaciente(Paciente paciente){
+        this.paciente = paciente;
+    }
+
     public Dentista getDentista() {
         return this.dentista.getDentista();
+    }
+
+    public void setDentista(Dentista dentista){
+        this.dentista = dentista;
     }
 
     public double valorConsulta() {
@@ -57,7 +65,7 @@ public class Consulta {
         return total;
     }
 
-    public String getConsulta() {
+    public String getDescricao() {
         String consultas = new String();
         for(int i = 0; i<this.listaProcedimento.size(); i++) {
             consultas = this.listaProcedimento.get(i).getNome() + ", " + consultas;

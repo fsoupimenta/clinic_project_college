@@ -1,5 +1,7 @@
 package model;
 
+import interfaces.TratamentoEspecifico;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -21,6 +23,10 @@ public class Paciente extends Pessoa implements TratamentoEspecifico {
 
     public LocalDate getDataDeNascimento() {
         return this.dataDeNascimento;
+    }
+
+    public void setDataDeNascimento(LocalDate dataDeNascimento){
+        this.dataDeNascimento = dataDeNascimento;
     }
 
     @Override
