@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 
 public class Procedimento {
     String nome;
@@ -7,6 +7,22 @@ public class Procedimento {
 
     public Procedimento(String nome, double preco){
         this.nome = nome;
+        this.preco = preco;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public double getPreco(double Preco){
+        return this.preco;
+    }
+
+    public void setPreco(){
         this.preco = preco;
     }
 

@@ -1,10 +1,8 @@
-package modeltest;
-
 import java.time.LocalDate;
 
-import modelclass.*;
+import model.*;
 
-public class Principal {
+public class main {
 
     public static void main(String[] args) {
         Dentista d1 = new Dentista("Rafael da Silva",
