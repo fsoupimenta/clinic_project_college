@@ -18,6 +18,13 @@ public class Paciente {
         this.codigo = "PA" + contador++;
     }
 
+    public Paciente(Paciente paciente) {
+        this.nome = paciente.nome;
+        this.email = paciente.email;
+        this.dataDeNascimento = paciente.dataDeNascimento;
+        this.codigo = paciente.codigo;
+    }
+
     public String getNome(){
         return this.nome;
     }

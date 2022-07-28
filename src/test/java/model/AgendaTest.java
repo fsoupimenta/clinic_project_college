@@ -24,7 +24,7 @@ class AgendaTest {
                 LocalDate.of(2001, 04, 14));
         x1 = new Procedimento("Tratamento de Canal", 499);
         c1 = new Consulta(d1, p1, x1);
-        a1 = new Agenda(1);
+        a1 = new Agenda();
         a1.addConsulta(c1);
     }
 
@@ -37,4 +37,16 @@ class AgendaTest {
     public void verifica_faturamento() {
         Assertions.assertEquals(a1.calculaFaturamento(), 499);
     }
+
+    @Test
+    public void verifica_existencia_consulta(){
+        Assertions.assertEquals(a1.verificaConsulta(c1), true);
+    }
+
+    @Test
+    public void verifica_naoExistencia_consulta(){
+        a1.removeConsulta(c1);
+        Assertions.assertEquals(a1.verificaConsulta(c1), false);
+    }
+
 }

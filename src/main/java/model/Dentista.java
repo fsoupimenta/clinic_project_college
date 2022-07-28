@@ -14,6 +14,13 @@ public class Dentista {
         this.codigo = "DE" + contador++;
     }
 
+    public Dentista(Dentista dentista) {
+        this.nome = dentista.nome;
+        this.email = dentista.email;
+        this.cro = dentista.cro;
+        this.codigo = dentista.codigo;
+    }
+
     public String getNome(){
         return this.nome;
     }

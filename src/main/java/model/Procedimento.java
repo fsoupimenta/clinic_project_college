@@ -1,8 +1,8 @@
 package model;
 
 public class Procedimento {
-    String nome;
-    double preco;
+    private String nome;
+    private double preco;
     private String codigo;
     private static int contador=1;
 
@@ -11,6 +11,12 @@ public class Procedimento {
         this.nome = nome;
         this.preco = preco;
         this.codigo = "PO" + contador++;
+    }
+
+    public Procedimento(Procedimento procedimento) {
+        this.nome = procedimento.nome;
+        this.preco = procedimento.preco;
+        this.codigo = procedimento.codigo;
     }
 
     public String getNome(){

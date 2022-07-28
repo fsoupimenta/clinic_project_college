@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 import java.util.ArrayList;
 
 public class Agenda {
@@ -17,7 +17,7 @@ public class Agenda {
     }
 
     public boolean verificaConsulta(Consulta consulta) {
-        if(this.listaConsultas.indexOf(consulta) > 0) {
+        if(this.listaConsultas.contains(consulta)) {
             return true;
         }
         return false;
