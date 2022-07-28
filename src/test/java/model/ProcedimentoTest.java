@@ -17,11 +17,6 @@ class ProcedimentoTest {
 
     @Test
     public void verifica_descricao() {
-        Assertions.assertEquals(x1.getDescricao(), "Tratamento de Canal - Custo: 499.0");
-    }
-
-    @Test
-    public void verifica_codigo(){
-        Assertions.assertEquals(x1.getCodigo(), "PO1");
+        Assertions.assertEquals(x1.getDescricao(), "Tratamento de Canal -Preco: 499.0R$");
     }
 }

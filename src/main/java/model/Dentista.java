@@ -8,18 +8,23 @@ public abstract class Dentista extends Pessoa {
     public Dentista(String nome, String email, String cro){
         super(nome, email);
         this.cro = cro;
-        this.codigo = " D" + ++proximoCodigo;
+        this.codigo = "DE" + ++proximoCodigo;
     }
     public Dentista(Dentista dentista) {
         super(dentista.nome, dentista.email);
         this.cro = dentista.cro;
+        this.codigo = dentista.getCodigo();
     }
 
     public String getCro() {
         return this.cro;
     }
 
-    public abstract double calculaSalario(double valor);
+    public void setCro(String cro){
+        this.cro = cro;
+    }
+
+    public abstract void setSalario(double valor);
     public abstract double getSalario();
     public abstract Dentista getDentista();
     @Override

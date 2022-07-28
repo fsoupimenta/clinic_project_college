@@ -20,11 +20,7 @@ class PacienteTest {
     @Test
     public void verifica_descricao() {
         Assertions.assertEquals(p1.getDescricao(), "Sr(a) Jose da Silva " +
-                "-Data de Nascimento: 14/04/2001 -Email: jssilva@email.com");
+                "-Email:jssilva@email.com -Data de Nascimento: 14/04/2001");
     }
 
-    @Test
-    public void verifica_codigo(){
-        Assertions.assertEquals(p1.getCodigo(), "PA1");
-    }
 }
