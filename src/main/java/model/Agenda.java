@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 
 public class Agenda {
     private Consulta listaConsultas[];
@@ -29,5 +29,17 @@ public class Agenda {
 
     public int qtdConsultas(){
         return this.listaConsultas.length;
+    }
+
+    public String toString() {
+        return getDescricao();
+    }
+
+    public String getDescricao() {
+        String d1 = new String();
+        for(int i = 0; i<this.listaConsultas.length; i++) {
+            d1 = this.listaConsultas[i] + "\n" + d1;
+        }
+        return "Lista de Consultas da Clinica: \n" + d1;
     }
 }

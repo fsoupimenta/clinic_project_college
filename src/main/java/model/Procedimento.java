@@ -21,28 +21,20 @@ public class Procedimento {
         this.nome = nome;
     }
 
-    public double getPreco(double Preco){
-        return this.preco;
-    }
-
-    public void setPreco(){
-        this.preco = preco;
-    }
-
-    public String toString() {
-        return getDescricao();
-    }
-
-    public String getNome(){
-        return this.nome;
-    }
-
     public double getPreco(){
         return this.preco;
     }
 
+    public void setPreco(double preco){
+        this.preco = preco;
+    }
+
     public String getCodigo(){
         return this.codigo;
+    }
+
+    public String toString() {
+        return getDescricao();
     }
 
     public String getDescricao() {

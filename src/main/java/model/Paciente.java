@@ -42,24 +42,12 @@ public class Paciente {
         this.dataDeNascimento = dataDeNascimento;
     }
 
-    public String toString() {
-        return getDescricao();
-    }
-
-    public String getNome(){
-        return this.nome;
-    }
-
-    public String getEmail(){
-        return this.email;
-    }
-
-    public String getCro(){
-        return this.dataDeNascimento.format(formatador);
-    }
-
     public String getCodigo(){
         return this.codigo;
+    }
+
+    public String toString() {
+        return getDescricao();
     }
 
     public String getDescricao() {
