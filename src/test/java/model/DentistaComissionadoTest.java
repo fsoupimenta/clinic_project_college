@@ -19,8 +19,8 @@ class DentistaComissionadoTest {
     }
     @Test
         void verifica_Descricao() {
-        Assertions.assertEquals(d1.getDescricao(), "Dr(a): Lucas da Silva " +
-                "-Email:lcsilva@email.com -CRO: 1112");
+        Assertions.assertEquals(d1.getDescricao(), "Dra. Lucia da Silva " +
+                "-Email: lcsilva@email.com -CRO: 1112");
     }
 
     @Test

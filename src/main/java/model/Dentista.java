@@ -24,7 +24,7 @@ public abstract class Dentista extends Pessoa implements TratamentoEspecifico {
     public abstract Dentista getDentista();
     @Override
     public String getDescricao() {
-        return getTratamento() + super.getDescricao()+ " -CRO: " + this.cro;
+        return getTratamento() + " -Email: " + getEmail()+ " -CRO: " + this.cro;
     }
 
     public String getTratamento(){

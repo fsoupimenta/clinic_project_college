@@ -16,13 +16,13 @@ class DentistaAssalariadoTest {
     }
     @Test
     void verifica_descricao() {
-        Assertions.assertEquals(d1.getDescricao(), "Dr(a): Rafael da Silva " +
-                "-Email:rfsilva@email.com -CRO: 1111");
+        Assertions.assertEquals(d1.getDescricao(), "Dr. Rafael da Silva " +
+                "-Email: rfsilva@email.com -CRO: 1111");
     }
     @Test
     void verifica_salario(){
-        Assertions.assertEquals(d1.getDescricao(), "Dr(a): Rafael da Silva " +
-                "-Email:rfsilva@email.com -CRO: 1111");
+        Assertions.assertEquals(d1.getDescricao(), "Dr. Rafael da Silva " +
+                "-Email: rfsilva@email.com -CRO: 1111");
         Assertions.assertEquals(d1.getSalario(), 900);
     }
 }

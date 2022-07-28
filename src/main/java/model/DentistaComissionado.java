@@ -1,5 +1,7 @@
 package model;
 
+import javax.swing.*;
+
 public class DentistaComissionado extends Dentista {
     private double porcentagemComissao;
     private double salario=0;
@@ -33,7 +35,7 @@ public class DentistaComissionado extends Dentista {
     }
 
     public void setPorcentagemComissao(double porcentagemComissao) throws ErroComissao{
-        if (porcentagemComissao > 0.5) {
+        if (porcentagemComissao > 0.5 || porcentagemComissao < 0) {
             throw new ErroComissao("Porcentagem Invalida");
         }
         this.porcentagemComissao = porcentagemComissao;

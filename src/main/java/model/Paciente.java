@@ -25,15 +25,16 @@ public class Paciente extends Pessoa implements TratamentoEspecifico {
 
     @Override
     public String getDescricao() {
-        return getTratamento() + super.getDescricao() + " -Data de Nascimento: " +
+        return getTratamento() + " -Email: " + getEmail() + " -Data de Nascimento: " +
                 getDataDeNascimento().format(formatador);
     }
 
     public String getTratamento(){
+        String[] sobreNome = getNome().split(" ");
         if(this.sexo){
-            return "Senhora " + getNome();
+            return "Senhor " + sobreNome[sobreNome.length - 1];
         }else{
-            return "Senhor " + getNome();
+            return "Senhora " + sobreNome[sobreNome.length - 1];
         }
     }
 }
