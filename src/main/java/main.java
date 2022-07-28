@@ -1,10 +1,8 @@
-package modeltest;
-
 import java.time.LocalDate;
 
-import modelclass.*;
+import model.*;
 
-public class Principal {
+public class main {
 
     public static void main(String[] args) {
         Dentista d1 = new Dentista("Rafael da Silva",
@@ -27,22 +25,15 @@ public class Principal {
         a1.addConsulta(c1);
         a1.addConsulta(c2);
 
-        System.out.println("Teste da Parte 1");
-
-        System.out.println(d1);
-        System.out.println(d2);
-        System.out.println(p1);
-        System.out.println(p2);
-        System.out.println(x1);
-        System.out.println(x2);
-
         System.out.println("\n Teste da Parte 2");
+        System.out.println(c1);
         System.out.println("O valor da consulta foi de: " + c1.valorConsulta());
         System.out.println("O faturamento foi de: " + a1.calculaFaturamento());
         System.out.println("A quantidade de consultas foi de: " + a1.qtdConsultas());
         System.out.println("Dentista código: " + d1.getCodigo());
         System.out.println("Paciente código: " + p1.getCodigo());
         System.out.println("Procedimento código: " + x1.getCodigo());
+        System.out.println(a1);
 
         System.out.println("\n Teste da Parte 3");
         if(a1.verificaConsulta(c2)){

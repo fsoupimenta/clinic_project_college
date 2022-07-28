@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 
 public class Dentista {
     private String nome;
@@ -14,27 +14,41 @@ public class Dentista {
         this.codigo = "DE" + contador++;
     }
 
-    public String toString() {
-        return getDescricao();
-    }
-
     public String getNome(){
         return this.nome;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
     }
 
     public String getEmail(){
         return this.email;
     }
 
+    public void setEmail(String email){
+        this.email = email;
+    }
+
     public String getCro(){
         return this.cro;
+    }
+
+    public void setCro(String cro){
+        this.cro = cro;
     }
 
     public String getCodigo(){
         return this.codigo;
     }
 
-    public String getDescricao() {
-        return "Dr(a) " + this.nome + " - CRO: " + this.cro + " -Email: " + this.email;
+    public String toString() {
+        return getDescricao();
     }
+
+    public String getDescricao() {
+        return "Dr(a) " + this.nome + " -Email: "
+                + this.email + " -CRO: " + this.cro;
+    }
+
 }

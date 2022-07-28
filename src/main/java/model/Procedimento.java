@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 
 public class Procedimento {
     String nome;
@@ -13,20 +13,28 @@ public class Procedimento {
         this.codigo = "PO" + contador++;
     }
 
-    public String toString() {
-        return getDescricao();
-    }
-
     public String getNome(){
         return this.nome;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
     }
 
     public double getPreco(){
         return this.preco;
     }
 
+    public void setPreco(double preco){
+        this.preco = preco;
+    }
+
     public String getCodigo(){
         return this.codigo;
+    }
+
+    public String toString() {
+        return getDescricao();
     }
 
     public String getDescricao() {

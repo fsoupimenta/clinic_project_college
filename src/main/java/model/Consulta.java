@@ -1,4 +1,4 @@
-package modelclass;
+package model;
 
 public class Consulta {
     private Dentista dentista;
@@ -11,24 +11,36 @@ public class Consulta {
         this.procedimento = procedimento;
     }
 
-    public String toString(){
-        return getDescricao();
-    }
-
     public Dentista getDentista(){
         return this.dentista;
+    }
+
+    public void setDentista(Dentista dentista){
+        this.dentista = dentista;
     }
 
     public Paciente getPaciente(){
         return this.paciente;
     }
 
+    public void setPaciente(Paciente paciente){
+        this.paciente = paciente;
+    }
+
     public Procedimento getProcedimento(){
         return this.procedimento;
     }
 
+    public void setProcedimento(Procedimento procedimento){
+        this.procedimento = procedimento;
+    }
+
     public double valorConsulta(){
         return this.procedimento.getPreco();
+    }
+
+    public String toString(){
+        return getDescricao();
     }
 
     public String getDescricao(){
