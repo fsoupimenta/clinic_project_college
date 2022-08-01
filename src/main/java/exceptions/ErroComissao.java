@@ -1,7 +1,7 @@
 package exceptions;
 
 public class ErroComissao extends RuntimeException{
-    ErroComissao(String mensagem){
+    public ErroComissao(String mensagem){
         super(mensagem);
     }
 }
