@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Agenda{
-    private ArrayList<Consulta> listaConsulta;
+    private static ArrayList<Consulta> listaConsulta;
 
     public Agenda(){
         this.listaConsulta = new ArrayList<Consulta>();
@@ -47,6 +47,16 @@ public class Agenda{
     public void ordenaNomeDentista(){
         CriterioNomeDentista criterioNomeDentista = new CriterioNomeDentista();
         Collections.sort(this.listaConsulta, criterioNomeDentista);
+    }
+
+    public static double calculaValorAoPaciente(String nome){
+        double valorAoPaciente=0;
+        for(int i=0; i<listaConsulta.size(); i++){
+            if(nome.equals(listaConsulta.get(i).getPaciente().getNome())){
+                valorAoPaciente = listaConsulta.get(i).valorConsulta() + valorAoPaciente;
+            }
+        }
+        return valorAoPaciente;
     }
     public double getFaturamento() {
         double totalSalario=0;
