@@ -1,15 +1,16 @@
 package model;
+import api.Agrupamento;
+
 import java.util.ArrayList;
 
 public class Consulta {
     private Dentista dentista;
     private Paciente paciente;
-    private ArrayList<Procedimento> listaProcedimento;
+    private Agrupamento<Procedimento> listaProcedimento = new Agrupamento();
 
     public Consulta(Dentista dentista, Paciente paciente){
         this.dentista = dentista;
         this.paciente = paciente;
-        this.listaProcedimento = new ArrayList<Procedimento>();
     }
 
     @Override
@@ -18,26 +19,15 @@ public class Consulta {
     }
 
     public boolean addProcedimento(Procedimento procedimento) {
-        if(this.listaProcedimento.add(procedimento)) {
-            return true;
-        }else{
-            return false;
-        }
+        return this.listaProcedimento.adiciona(procedimento);
     }
 
     public boolean removeProcedimento(Procedimento procedimento) {
-        if(this.listaProcedimento.remove(procedimento)){
-            return true;
-        }else{
-            return false;
-        }
+        return this.listaProcedimento.retira(procedimento);
     }
 
     public boolean verificaProcedimento(Procedimento procedimento) {
-        if(this.listaProcedimento.indexOf(procedimento) < 0) {
-            return false;
-        }
-        return true;
+        return this.listaProcedimento.verifica(procedimento);
     }
 
     public Paciente getPaciente() {
