@@ -1,4 +1,5 @@
 package model;
+import api.Agrupamento;
 import api.ClassificaPaciente;
 import api.CriterioNomeDentista;
 import api.CriterioNomePaciente;
@@ -6,10 +7,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Agenda{
-    private static ArrayList<Consulta> listaConsulta;
+    private static Agrupamento<Consulta> listaConsulta = new Agrupamento();
 
     public Agenda(){
-        this.listaConsulta = new ArrayList<Consulta>();
+
     }
     @Override
     public String toString() {
@@ -17,31 +18,20 @@ public class Agenda{
     }
 
     public boolean addConsulta(Consulta consulta) {
-        if(this.listaConsulta.add(consulta)){
-            return true;
-        }else{
-            return false;
-        }
+        return listaConsulta.adiciona(consulta);
     }
 
     public boolean removeConsulta(Consulta consulta) {
-        if(this.listaConsulta.remove(consulta)){
-            return true;
-        }else{
-            return false;
-        }
+        return listaConsulta.retira(consulta);
     }
 
     public boolean verificaConsulta(Consulta consulta) {
-        if(this.listaConsulta.indexOf(consulta) < 0) {
-            return false;
-        }
-        return true;
+        return listaConsulta.verifica(consulta);
     }
 
     public String getListaOrdemPaciente(){
         CriterioNomePaciente criterioNomePaciente = new CriterioNomePaciente();
-        Collections.sort(this.listaConsulta, criterioNomePaciente);
+        Collections.sort(listaConsulta, criterioNomePaciente);
         String d1 = new String();
         for(int i = 0; i<this.listaConsulta.size(); i++) {
             d1 = this.listaConsulta.get(i).getPaciente().getNome() +
