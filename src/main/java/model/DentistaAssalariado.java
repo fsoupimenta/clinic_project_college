@@ -11,12 +11,10 @@ public class DentistaAssalariado extends Dentista {
         this.salario = dentista.salario;
     }
 
-    @Override
     public void setSalario(double valor) {
         this.salario = valor;
     }
 
-    @Override
     public double getSalario() {
         return this.salario;
     }

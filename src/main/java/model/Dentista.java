@@ -24,8 +24,6 @@ public abstract class Dentista extends Pessoa {
         this.cro = cro;
     }
 
-    public abstract void setSalario(double valor);
-    public abstract double getSalario();
     public abstract Dentista getDentista();
     @Override
     public String getDescricao() {
