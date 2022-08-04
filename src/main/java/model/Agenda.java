@@ -49,6 +49,16 @@ public class Agenda{
         Collections.sort(this.listaConsulta, criterioNomeDentista);
     }
 
+    public static double totalizaValorAoComissionado(Dentista dentista){
+        double valorAoDentista=0;
+        for(int i=0; i<listaConsulta.size(); i++){
+            if(dentista.nome.equals(listaConsulta.get(i).getDentista().getNome())){
+                valorAoDentista = listaConsulta.get(i).valorConsulta() + valorAoDentista;
+            }
+        }
+        return valorAoDentista;
+    }
+
     public static double calculaValorAoPaciente(String nome){
         double valorAoPaciente=0;
         for(int i=0; i<listaConsulta.size(); i++){
@@ -59,17 +69,7 @@ public class Agenda{
         return valorAoPaciente;
     }
     public double getFaturamento() {
-        double totalSalario=0;
-        double totalRecebido =0;
-        String nome = new String();
-        for(int i = 0; i<this.listaConsulta.size(); i++) {
-            if(this.listaConsulta.get(i).getDentista().getNome()!=nome) {
-                totalSalario = this.listaConsulta.get(i).getDentista().getSalario() + totalSalario;
-                nome = this.listaConsulta.get(i).getDentista().getNome();
-            }
-            totalRecebido = totalRecebido + this.listaConsulta.get(i).valorConsulta();
-        }
-        return totalRecebido - totalSalario;
+        return 0;
     }
     public int qtdConsultas() {
         return this.listaConsulta.size();

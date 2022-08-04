@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 class AgendaTest {
 
-    DentistaAssalariado d1;
+    DentistaComissionado d1;
     Paciente p1;
     Procedimento x1;
     Consulta c1;
@@ -17,9 +17,9 @@ class AgendaTest {
     @BeforeEach
     public void init() {
         d1 =
-                new DentistaAssalariado("Rafael da Silva",
+                new DentistaComissionado("Rafael da Silva",
                         "rfsilva@email.com",
-                        "1111", 900, true);
+                        "1111", 0.3, true);
         p1 = new Paciente("Jose da Silva",
                 "jssilva@email.com",
                 LocalDate.of(2001, 04, 14), true);
@@ -59,6 +59,11 @@ class AgendaTest {
     @Test
     public void calculaGastos(){
         Assertions.assertEquals(Agenda.calculaValorAoPaciente(p1.getNome()), 34499);
+    }
+
+    @Test
+    public void calculaComissao(){
+        Assertions.assertEquals(d1.calculaSalarioComissionado(), 10349.699999999999);
     }
 
     @Test
