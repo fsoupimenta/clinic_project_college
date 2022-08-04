@@ -24,7 +24,7 @@ class AgendaTest {
         p1 = new Paciente("Jose da Silva",
                 "jssilva@email.com",
                 LocalDate.of(2001, 04, 14), true);
-        x1 = new Procedimento("Tratamento de Canal", 4500);
+        x1 = new Procedimento("Tratamento de Canal", 45000);
         c1 = new Consulta(d1, p1);
         c1.addProcedimento(x1);
         a1 = new Agenda();
@@ -59,7 +59,7 @@ class AgendaTest {
 
     @Test
     public void calculaGastos(){
-        Assertions.assertEquals(Agenda.calculaValorAoPaciente(p1),
+        Assertions.assertEquals(Agenda.totalizaValorAoPaciente(p1),
                 34499);
     }
 
@@ -82,7 +82,7 @@ class AgendaTest {
         c2.addProcedimento(x1);
         a1.addConsulta(c2);
         a1.addConsulta(c3);
-        Assertions.assertEquals(a1.ordenaNomePaciente(), "Alex " + "Bruno da Silva "+
+        Assertions.assertEquals(a1.getListaOrdemPaciente(), "Alex " + "Bruno da Silva "+
                 "Jose da Silva ");
     }
 
@@ -107,7 +107,7 @@ class AgendaTest {
     }
 
     @Test
-    public void shouldReturnB(){
+    public void shouldReturnA(){
         ClassificaPaciente.classificaPaciente(p1);
         Assertions.assertEquals(ClassificaPaciente.getClassificacao(p1.getNome()), "A");
     }

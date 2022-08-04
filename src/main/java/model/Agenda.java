@@ -1,7 +1,7 @@
 package model;
+import api.ClassificaPaciente;
 import api.CriterioNomeDentista;
 import api.CriterioNomePaciente;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -39,10 +39,18 @@ public class Agenda{
         return true;
     }
 
-    public String ordenaNomePaciente(){
+    public String getListaOrdemPaciente(){
         CriterioNomePaciente criterioNomePaciente = new CriterioNomePaciente();
         Collections.sort(this.listaConsulta, criterioNomePaciente);
-        return getListaOrdemPaciente();
+        String d1 = new String();
+        for(int i = 0; i<this.listaConsulta.size(); i++) {
+            d1 = this.listaConsulta.get(i).getPaciente().getNome() +
+                    "\n" + "Valor para o doutor: " + listaConsulta.get(i).getDentista().getSalario() +
+                    "\nValor para Clinica: " +
+                    (totalizaValorAoDentista(listaConsulta.get(i).getDentista()) -
+                            listaConsulta.get(i).getDentista().getSalario()) + "\n" + d1;
+        }
+        return d1;
     }
 
     public String getListaOrdemDentista(){
@@ -53,13 +61,13 @@ public class Agenda{
             d1 = this.listaConsulta.get(i).getDentista().getNome() +
                     "\n" + "Valor para o doutor: " + listaConsulta.get(i).getDentista().getSalario() +
                     "\nValor para Clinica: " +
-                    (totalizaValorAoComissionado(listaConsulta.get(i).getDentista()) -
+                    (totalizaValorAoDentista(listaConsulta.get(i).getDentista()) -
                             listaConsulta.get(i).getDentista().getSalario()) + "\n" + d1;
         }
         return d1;
     }
 
-    public static double totalizaValorAoComissionado(Dentista dentista){
+    public static double totalizaValorAoDentista(Dentista dentista){
         double valorAoDentista=0;
         for(int i=0; i<listaConsulta.size(); i++){
             if(dentista.nome.equals(listaConsulta.get(i).getDentista().getNome())){
@@ -69,7 +77,7 @@ public class Agenda{
         return valorAoDentista;
     }
 
-    public static double calculaValorAoPaciente(Paciente paciente){
+    public static double totalizaValorAoPaciente(Paciente paciente){
         double valorAoPaciente=0;
         for(int i=0; i<listaConsulta.size(); i++){
             if(paciente.getNome().equals(listaConsulta.get(i).getPaciente().getNome())){
@@ -91,13 +99,5 @@ public class Agenda{
             d1 = this.listaConsulta.get(i) + "\n" + d1;
         }
         return "Lista de Consultas da Clinica: \n" + d1;
-    }
-
-    public String getListaOrdemPaciente(){
-        String d1 = new String();
-        for(int i = 0; i<this.listaConsulta.size(); i++) {
-            d1 = this.listaConsulta.get(i).getPaciente().getNome() + " " + d1;
-        }
-        return d1;
     }
 }

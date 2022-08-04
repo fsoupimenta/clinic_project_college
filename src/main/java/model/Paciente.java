@@ -30,7 +30,7 @@ public class Paciente extends Pessoa implements TratamentoEspecifico {
     }
 
     public double calculaGastos(){
-        return Agenda.calculaValorAoPaciente(this);
+        return Agenda.totalizaValorAoPaciente(this);
     }
 
     @Override
