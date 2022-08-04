@@ -1,11 +1,9 @@
-# Clínica Odontológica - Parte 6
-1. Elabore uma estrutura para classificar os ```Pacientes``` em categorias. Essa estrutura deve associar cada nome de ```Paciente``` a uma categoria:
+# Clínica Odontológica - Parte 7
+1.Proponha e implemente uma solução capaz de ***generalizar*** o tratamento a qualquer tipo de lista, seja ela de ```Consultas``` ou outra qualquer. 
 
-```java
-Categoria A para pacientes com total de procedimentos acima de R$30.000,00; 
-Categoria B para pacientes com total de procedimentos acima de R$ 10.000,00 e abaixo de R$30.000,00; 
-Categoria C para pacientes com total de compras abaixo de R$ 10.000,00.
-```
-2. Crie um mecanismo capaz de atualizar essa estrutura sempre que desejado.
+>Existe um atributo, no sistema, que armazena uma lista de consultas, certo? Trata-se de um ArrayList configurado para aceitar apenas objetos da classe Consulta. Você codificou diversos métodos (listar, adicionar, remover, etc) para manipular essa lista de consultas. Está lembrado? 
+
+>Agora imagine se precisássemos gerenciar outras listas em nosso sistema, além da lista de consultas, como lista de dentistas, de procedimentos, dentre outras. Teríamos que codificar os mesmos métodos da lista de consulta para essas outras listas: método para listar, adicionar, remover, dentre outros. Haverá duplicidade de código e todos os problemas relacionados a essa estratégia.
+
 
 
