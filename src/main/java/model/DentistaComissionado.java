@@ -20,7 +20,7 @@ public class DentistaComissionado extends Dentista {
         this.porcentagemComissao = 0.3;
     }
 
-    public double calculaSalarioComissionado(){
+    public double getSalario(){
         return Agenda.totalizaValorAoComissionado(this) * this.porcentagemComissao;
     }
 

@@ -21,6 +21,8 @@ public abstract class Dentista extends Pessoa implements TratamentoEspecifico {
         return this.cro;
     }
 
+    public abstract double getSalario();
+
     public abstract Dentista getDentista();
     @Override
     public String getDescricao() {

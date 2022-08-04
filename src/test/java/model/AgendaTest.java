@@ -24,7 +24,7 @@ class AgendaTest {
         p1 = new Paciente("Jose da Silva",
                 "jssilva@email.com",
                 LocalDate.of(2001, 04, 14), true);
-        x1 = new Procedimento("Tratamento de Canal", 34499);
+        x1 = new Procedimento("Tratamento de Canal", 4500);
         c1 = new Consulta(d1, p1);
         c1.addProcedimento(x1);
         a1 = new Agenda();
@@ -65,7 +65,7 @@ class AgendaTest {
 
     @Test
     public void calculaComissao(){
-        Assertions.assertEquals(d1.calculaSalarioComissionado(),
+        Assertions.assertEquals(d1.getSalario(),
                 10349.699999999999);
     }
 
@@ -102,7 +102,7 @@ class AgendaTest {
         c2.addProcedimento(x1);
         a1.addConsulta(c2);
         a1.addConsulta(c3);
-        Assertions.assertEquals(a1.ordenaNomeDentista(), "Wendel da Silva " + "Saulo da Silva " +
+        Assertions.assertEquals(a1.getListaOrdemDentista(), "Wendel da Silva " + "Saulo da Silva " +
                 "Rafael da Silva ");
     }
 
