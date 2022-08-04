@@ -1,4 +1,5 @@
 package model;
+import api.ClassificaPaciente;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -58,12 +59,51 @@ class AgendaTest {
 
     @Test
     public void calculaGastos(){
-        Assertions.assertEquals(Agenda.calculaValorAoPaciente(p1.getNome()), 34499);
+        Assertions.assertEquals(Agenda.calculaValorAoPaciente(p1),
+                34499);
     }
 
     @Test
     public void calculaComissao(){
-        Assertions.assertEquals(d1.calculaSalarioComissionado(), 10349.699999999999);
+        Assertions.assertEquals(d1.calculaSalarioComissionado(),
+                10349.699999999999);
+    }
+
+    @Test
+    public void shouldOrderByPacientNameAZ(){
+        Paciente p2 = new Paciente("Bruno da Silva",
+                "jssilva@email.com",
+                LocalDate.of(2001, 04, 14), true);
+        Consulta c2 = new Consulta(d1, p2);
+        Paciente p3 = new Paciente("Alex", "a",
+                LocalDate.of(2001, 04, 18), true);
+        Consulta c3 = new Consulta(d1, p3);
+        c3.addProcedimento(x1);
+        c2.addProcedimento(x1);
+        a1.addConsulta(c2);
+        a1.addConsulta(c3);
+        Assertions.assertEquals(a1.ordenaNomePaciente(), "Alex " + "Bruno da Silva "+
+                "Jose da Silva ");
+    }
+
+    @Test
+    public void shouldOrderByDentistNameZA(){
+        DentistaComissionado d2 =
+                new DentistaComissionado("Saulo da Silva",
+                        "rfsilva@email.com",
+                        "1111", 0.3, true);
+        Consulta c2 = new Consulta(d2, p1);
+        DentistaComissionado d3 =
+                new DentistaComissionado("Wendel da Silva",
+                        "rfsilva@email.com",
+                        "1111", 0.3, true);
+        Consulta c3 = new Consulta(d3, p1);
+        c3.addProcedimento(x1);
+        c2.addProcedimento(x1);
+        a1.addConsulta(c2);
+        a1.addConsulta(c3);
+        Assertions.assertEquals(a1.ordenaNomeDentista(), "Wendel da Silva " + "Saulo da Silva " +
+                "Rafael da Silva ");
     }
 
     @Test

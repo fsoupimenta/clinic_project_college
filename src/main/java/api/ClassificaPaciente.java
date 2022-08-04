@@ -1,4 +1,6 @@
-package model;
+package api;
+import model.Paciente;
+
 import java.util.HashMap;
 
 public class ClassificaPaciente {
