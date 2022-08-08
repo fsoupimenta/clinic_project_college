@@ -11,13 +11,8 @@ public class DentistaComissionado extends Dentista {
         try {
             setPorcentagemComissao(porcentagemComissao);
         }catch (ErroComissao e){
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
-    }
-
-    public DentistaComissionado(Dentista dentista) {
-        super(dentista.nome, dentista.email, dentista.cro, dentista.sexo);
-        this.porcentagemComissao = 0.3;
     }
 
     public double getSalario(){
@@ -34,6 +29,10 @@ public class DentistaComissionado extends Dentista {
         }
         this.porcentagemComissao = porcentagemComissao;
         return true;
+    }
+
+    public String getTipoDentista() {
+        return "É um Dentista Comissionado";
     }
 
     @Override

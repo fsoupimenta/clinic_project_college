@@ -3,7 +3,7 @@ package api;
 import java.util.*;
 
 public class Agrupamento<T> implements List<T> {
-    private ArrayList<T> lista = new ArrayList<>();
+    private final ArrayList<T> lista = new ArrayList<>();
 
     public boolean adiciona(T elemento){
         return lista.add(elemento);

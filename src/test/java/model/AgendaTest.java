@@ -109,6 +109,11 @@ class AgendaTest {
     @Test
     public void shouldReturnA(){
         ClassificaPaciente.classificaPaciente(p1);
-        Assertions.assertEquals(ClassificaPaciente.getClassificacao(p1.getNome()), "A");
+        Assertions.assertEquals(ClassificaPaciente.getClassificacao(p1), "A");
+    }
+
+    @Test
+    public void shouldGetAgenda(){
+        Assertions.assertEquals(a1.getAgenda(), "");
     }
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Consulta {
     private Dentista dentista;
     private Paciente paciente;
-    private Agrupamento<Procedimento> listaProcedimento = new Agrupamento();
+    private ArrayList<Procedimento> listaProcedimento = new ArrayList<>();
 
     public Consulta(Dentista dentista, Paciente paciente){
         this.dentista = dentista;
@@ -19,15 +19,15 @@ public class Consulta {
     }
 
     public boolean addProcedimento(Procedimento procedimento) {
-        return this.listaProcedimento.adiciona(procedimento);
+        return this.listaProcedimento.add(procedimento);
     }
 
     public boolean removeProcedimento(Procedimento procedimento) {
-        return this.listaProcedimento.retira(procedimento);
+        return this.listaProcedimento.remove(procedimento);
     }
 
     public boolean verificaProcedimento(Procedimento procedimento) {
-        return this.listaProcedimento.verifica(procedimento);
+        return this.listaProcedimento.contains(procedimento);
     }
 
     public Paciente getPaciente() {
@@ -56,8 +56,8 @@ public class Consulta {
 
     public String getDescricao() {
         String consultas = new String();
-        for(int i = 0; i<this.listaProcedimento.size(); i++) {
-            consultas = this.listaProcedimento.get(i).getNome() + ", " + consultas;
+        for(int i=0; i<listaProcedimento.size(); i++) {
+            consultas = listaProcedimento.get(i).getNome() + ", " + consultas;
         }
         return consultas + "para o paciente: " + this.paciente.getNome() +
                 " realizada pelo Dr(a): " + this.dentista.getNome();

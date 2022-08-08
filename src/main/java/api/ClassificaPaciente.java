@@ -4,17 +4,19 @@ import model.Paciente;
 import java.util.HashMap;
 
 public class ClassificaPaciente {
-    private static HashMap<String, String> classifica = new HashMap<String, String>();
+    private static final HashMap<Paciente, String> classificacaoPaciente = new HashMap<>();
 
     public static void classificaPaciente(Paciente paciente){
-        if(paciente.calculaGastos() > 30000){
-            classifica.put(paciente.getNome(), "A");
-        }else{
-            classifica.put(paciente.getNome(), "B");
+        if(paciente.calculaGastos() >= 30000) {
+            classificacaoPaciente.put(paciente, "A");
+        } else if (paciente.calculaGastos() < 30000 && paciente.calculaGastos() >= 10000) {
+            classificacaoPaciente.put(paciente, "B");
+        } else {
+            classificacaoPaciente.put(paciente, "C");
         }
     }
 
-    public static String getClassificacao(String nome){
-        return classifica.get(nome);
+    public static String getClassificacao(Paciente paciente){
+        return classificacaoPaciente.get(paciente);
     }
 }

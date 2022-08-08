@@ -1,10 +1,7 @@
 package model;
-import api.Agrupamento;
-import api.ClassificaPaciente;
-import api.CriterioNomeDentista;
-import api.CriterioNomePaciente;
-import java.util.ArrayList;
+import api.*;
 import java.util.Collections;
+import java.util.ArrayList;
 
 public class Agenda{
     private static Agrupamento<Consulta> listaConsulta = new Agrupamento();
@@ -35,8 +32,8 @@ public class Agenda{
         String d1 = new String();
         for(int i = 0; i<this.listaConsulta.size(); i++) {
             d1 = this.listaConsulta.get(i).getPaciente().getNome() +
-                    "\n" + "Valor para o doutor: " + listaConsulta.get(i).getDentista().getSalario() +
-                    "\nValor para Clinica: " +
+                    "\n" + "Valor para o doutor: " +
+                    listaConsulta.get(i).getDentista().getSalario() + "\nValor para Clinica: " +
                     (totalizaValorAoDentista(listaConsulta.get(i).getDentista()) -
                             listaConsulta.get(i).getDentista().getSalario()) + "\n" + d1;
         }
@@ -49,8 +46,8 @@ public class Agenda{
         String d1 = new String();
         for(int i = 0; i<this.listaConsulta.size(); i++) {
             d1 = this.listaConsulta.get(i).getDentista().getNome() +
-                    "\n" + "Valor para o doutor: " + listaConsulta.get(i).getDentista().getSalario() +
-                    "\nValor para Clinica: " +
+                    "\n" + "Valor para o doutor: " +
+                    listaConsulta.get(i).getDentista().getSalario() + "\nValor para Clinica: " +
                     (totalizaValorAoDentista(listaConsulta.get(i).getDentista()) -
                             listaConsulta.get(i).getDentista().getSalario()) + "\n" + d1;
         }
@@ -85,8 +82,8 @@ public class Agenda{
 
     public String getAgenda() {
         String d1 = new String();
-        for(int i = 0; i<this.listaConsulta.size(); i++) {
-            d1 = this.listaConsulta.get(i) + "\n" + d1;
+        for(int i=0; i<listaConsulta.size(); i++) {
+            d1 = listaConsulta.get(i) + "\n" + d1;
         }
         return "Lista de Consultas da Clinica: \n" + d1;
     }
