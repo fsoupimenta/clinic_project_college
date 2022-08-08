@@ -53,20 +53,15 @@ class AgendaTest {
     }
 
     @Test
-    public void shouldShow_NumberOfConsults(){
-        Assertions.assertEquals(a1.qtdConsultas(), 1);
-    }
-
-    @Test
-    public void calculaGastos(){
+    public void shouldReturnPatientExpense(){
         Assertions.assertEquals(Agenda.totalizaValorAoPaciente(p1),
-                34499);
+                45000.0);
     }
 
     @Test
-    public void calculaComissao(){
-        Assertions.assertEquals(d1.getSalario(),
-                10349.699999999999);
+    public void shoulReturnDentistExpense(){
+        Assertions.assertEquals(Agenda.totalizaValorAoDentista(d1),
+                45000.0);
     }
 
     @Test
@@ -82,8 +77,11 @@ class AgendaTest {
         c2.addProcedimento(x1);
         a1.addConsulta(c2);
         a1.addConsulta(c3);
-        Assertions.assertEquals(a1.getListaOrdemPaciente(), "Alex " + "Bruno da Silva "+
-                "Jose da Silva ");
+        Assertions.assertEquals(a1.getListaOrdemPaciente(), "Alex" +
+                "\nValor para o doutor: 40500.0"+ "\nValor para Clinica: 94500.0" +
+                "\nBruno da Silva" + "\nValor para o doutor: 40500.0" +
+                "\nValor para Clinica: 94500.0" + "\nJose da Silva" +
+                "\nValor para o doutor: 40500.0" + "\nValor para Clinica: 94500.0\n");
     }
 
     @Test
@@ -102,18 +100,16 @@ class AgendaTest {
         c2.addProcedimento(x1);
         a1.addConsulta(c2);
         a1.addConsulta(c3);
-        Assertions.assertEquals(a1.getListaOrdemDentista(), "Wendel da Silva " + "Saulo da Silva " +
-                "Rafael da Silva ");
+        Assertions.assertEquals(a1.getListaOrdemDentista(), "Dr. Wendel da Silva" +
+                "\nValor para o doutor: 13500.0"+ "\nValor para Clinica: 31500.0" +
+                "\nDr. Saulo da Silva" + "\nValor para o doutor: 13500.0" +
+                "\nValor para Clinica: 31500.0" + "\nDr. Rafael da Silva" +
+                "\nValor para o doutor: 13500.0" + "\nValor para Clinica: 31500.0\n");
     }
 
     @Test
-    public void shouldReturnA(){
+    public void shouldReturnPatientRating(){
         ClassificaPaciente.classificaPaciente(p1);
         Assertions.assertEquals(ClassificaPaciente.getClassificacao(p1), "A");
-    }
-
-    @Test
-    public void shouldGetAgenda(){
-        Assertions.assertEquals(a1.getAgenda(), "");
     }
 }

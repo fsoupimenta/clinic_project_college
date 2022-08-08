@@ -45,7 +45,7 @@ public class Agenda{
         Collections.sort(this.listaConsulta, criterioNomeDentista);
         String d1 = new String();
         for(int i = 0; i<this.listaConsulta.size(); i++) {
-            d1 = this.listaConsulta.get(i).getDentista().getNome() +
+                d1 = this.listaConsulta.get(i).getDentista().getTratamento() +
                     "\n" + "Valor para o doutor: " +
                     listaConsulta.get(i).getDentista().getSalario() + "\nValor para Clinica: " +
                     (totalizaValorAoDentista(listaConsulta.get(i).getDentista()) -
