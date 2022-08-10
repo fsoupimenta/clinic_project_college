@@ -6,9 +6,6 @@ import java.util.ArrayList;
 public class Agenda{
     private static Agrupamento<Consulta> listaConsulta = new Agrupamento();
 
-    public Agenda(){
-
-    }
     @Override
     public String toString() {
         return getAgenda();
@@ -28,24 +25,24 @@ public class Agenda{
 
     public String getListaOrdemPaciente(){
         CriterioNomePaciente criterioNomePaciente = new CriterioNomePaciente();
-        Collections.sort(listaConsulta, criterioNomePaciente);
+        Collections.sort(listaConsulta.getLista(), criterioNomePaciente);
         String d1 = new String();
-        for(int i = 0; i<this.listaConsulta.size(); i++) {
-            d1 = this.listaConsulta.get(i).getPaciente().getNome() +
+        for(Consulta consulta : listaConsulta.getLista()) {
+            d1 = consulta.getPaciente().getNome() +
                     "\n" + "Valor para o doutor: " +
-                    listaConsulta.get(i).getDentista().getSalario() + "\nValor para Clinica: " +
-                    (totalizaValorAoDentista(listaConsulta.get(i).getDentista()) -
-                            listaConsulta.get(i).getDentista().getSalario()) + "\n" + d1;
+                    consulta.getDentista().getSalario() + "\nValor para Clinica: " +
+                    (totalizaValorAoDentista(consulta.getDentista()) -
+                            consulta.getDentista().getSalario()) + "\n" + d1;
         }
         return d1;
     }
 
     public String getListaOrdemDentista(){
         CriterioNomeDentista criterioNomeDentista = new CriterioNomeDentista();
-        Collections.sort(this.listaConsulta, criterioNomeDentista);
+        Collections.sort(listaConsulta.getLista(), criterioNomeDentista);
         String d1 = new String();
-        for(int i = 0; i<this.listaConsulta.size(); i++) {
-                d1 = this.listaConsulta.get(i).getDentista().getTratamento() +
+        for(int i = 0; i<listaConsulta.tamanho(); i++) {
+                d1 = listaConsulta.get(i).getDentista().getTratamento() +
                     "\n" + "Valor para o doutor: " +
                     listaConsulta.get(i).getDentista().getSalario() + "\nValor para Clinica: " +
                     (totalizaValorAoDentista(listaConsulta.get(i).getDentista()) -
@@ -56,7 +53,7 @@ public class Agenda{
 
     public static double totalizaValorAoDentista(Dentista dentista){
         double valorAoDentista=0;
-        for(int i=0; i<listaConsulta.size(); i++){
+        for(int i=0; i<listaConsulta.tamanho(); i++){
             if(dentista.nome.equals(listaConsulta.get(i).getDentista().getNome())){
                 valorAoDentista = listaConsulta.get(i).valorConsulta() + valorAoDentista;
             }
@@ -66,7 +63,7 @@ public class Agenda{
 
     public static double totalizaValorAoPaciente(Paciente paciente){
         double valorAoPaciente=0;
-        for(int i=0; i<listaConsulta.size(); i++){
+        for(int i=0; i<listaConsulta.tamanho(); i++){
             if(paciente.getNome().equals(listaConsulta.get(i).getPaciente().getNome())){
                 valorAoPaciente = listaConsulta.get(i).valorConsulta() + valorAoPaciente;
             }
@@ -77,12 +74,12 @@ public class Agenda{
         return 0;
     }
     public int qtdConsultas() {
-        return this.listaConsulta.size();
+        return listaConsulta.tamanho();
     }
 
     public String getAgenda() {
         String d1 = new String();
-        for(int i=0; i<listaConsulta.size(); i++) {
+        for(int i=0; i<listaConsulta.tamanho(); i++) {
             d1 = listaConsulta.get(i) + "\n" + d1;
         }
         return "Lista de Consultas da Clinica: \n" + d1;
