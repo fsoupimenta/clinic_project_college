@@ -77,6 +77,10 @@ public class Agenda{
         return listaConsulta.tamanho();
     }
 
+    public ArrayList<Consulta> getListaAgenda(){
+        return listaConsulta.getLista();
+    }
+
     public String getAgenda() {
         String d1 = new String();
         for(Consulta consulta : listaConsulta.getLista()) {
