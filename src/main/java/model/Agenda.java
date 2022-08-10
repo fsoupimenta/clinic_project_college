@@ -41,12 +41,12 @@ public class Agenda{
         CriterioNomeDentista criterioNomeDentista = new CriterioNomeDentista();
         Collections.sort(listaConsulta.getLista(), criterioNomeDentista);
         String d1 = new String();
-        for(int i = 0; i<listaConsulta.tamanho(); i++) {
-                d1 = listaConsulta.get(i).getDentista().getTratamento() +
+        for(Consulta consulta : listaConsulta.getLista()) {
+                d1 = consulta.getDentista().getTratamento() +
                     "\n" + "Valor para o doutor: " +
-                    listaConsulta.get(i).getDentista().getSalario() + "\nValor para Clinica: " +
-                    (totalizaValorAoDentista(listaConsulta.get(i).getDentista()) -
-                            listaConsulta.get(i).getDentista().getSalario()) + "\n" + d1;
+                    consulta.getDentista().getSalario() + "\nValor para Clinica: " +
+                    (totalizaValorAoDentista(consulta.getDentista()) -
+                            consulta.getDentista().getSalario()) + "\n" + d1;
         }
         return d1;
     }
@@ -79,8 +79,8 @@ public class Agenda{
 
     public String getAgenda() {
         String d1 = new String();
-        for(int i=0; i<listaConsulta.tamanho(); i++) {
-            d1 = listaConsulta.get(i) + "\n" + d1;
+        for(Consulta consulta : listaConsulta.getLista()) {
+            d1 = consulta + "\n" + d1;
         }
         return "Lista de Consultas da Clinica: \n" + d1;
     }
