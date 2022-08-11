@@ -17,6 +17,7 @@ public class ClassificaPaciente {
     }
 
     public static String getClassificacao(Paciente paciente){
+        classificaPaciente(paciente);
         return classificacaoPaciente.get(paciente);
     }
 }

@@ -2,7 +2,7 @@ package api;
 
 import java.util.*;
 
-public class Agrupamento<T>{
+public class GeneralizaArray<T>{
     private final ArrayList<T> lista = new ArrayList<>();
 
     public boolean adiciona(T elemento){
@@ -23,6 +23,12 @@ public class Agrupamento<T>{
 
     public int tamanho(){
         return lista.size();
+    }
+
+    public void adcionaEmGrupo(ArrayList<T> obj){
+        for(T t: obj){
+            adiciona(t);
+        }
     }
 
     public ArrayList<T> getLista(){

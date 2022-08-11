@@ -7,7 +7,7 @@ import java.time.LocalDate;
 class PacienteTest {
 
     @Test
-    void checkDescription() {
+    public void checkDescription() {
         Paciente p1 =
                 new Paciente("Jose da Silva",
                         "jssilva@email.com",
@@ -15,4 +15,5 @@ class PacienteTest {
         Assertions.assertEquals(p1.getDescricao(),"Senhor Silva " +
                 "-Email: jssilva@email.com -Data de Nascimento: 14/04/2001");
     }
+    
 }

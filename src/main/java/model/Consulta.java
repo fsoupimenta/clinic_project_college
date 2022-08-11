@@ -1,12 +1,10 @@
 package model;
-import api.Agrupamento;
-
-import java.util.ArrayList;
+import api.GeneralizaArray;
 
 public class Consulta {
     private Dentista dentista;
     private Paciente paciente;
-    private Agrupamento<Procedimento> listaProcedimento = new Agrupamento<>();
+    private GeneralizaArray<Procedimento> listaProcedimento = new GeneralizaArray<>();
 
     public Consulta(Dentista dentista, Paciente paciente){
         this.dentista = dentista;

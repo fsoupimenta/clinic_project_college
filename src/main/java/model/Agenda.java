@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.ArrayList;
 
 public class Agenda{
-    private static Agrupamento<Consulta> listaConsulta = new Agrupamento();
+    private static GeneralizaArray<Consulta> listaConsulta = new GeneralizaArray();
 
     @Override
     public String toString() {
@@ -24,10 +24,12 @@ public class Agenda{
     }
 
     public String getListaOrdemPaciente(){
-        CriterioNomePaciente criterioNomePaciente = new CriterioNomePaciente();
-        Collections.sort(listaConsulta.getLista(), criterioNomePaciente);
+        OrdenaNomePaciente criterioNomePaciente = new OrdenaNomePaciente();
+        GeneralizaArray<Consulta> novaListaConsulta = new GeneralizaArray();
+        novaListaConsulta.adcionaEmGrupo(listaConsulta.getLista());
+        Collections.sort(novaListaConsulta.getLista(), criterioNomePaciente);
         String d1 = new String();
-        for(Consulta consulta : listaConsulta.getLista()) {
+        for(Consulta consulta : novaListaConsulta.getLista()) {
             d1 = consulta.getPaciente().getNome() +
                     "\n" + "Valor para o doutor: " +
                     consulta.getDentista().getSalario() + "\nValor para Clinica: " +
@@ -38,10 +40,12 @@ public class Agenda{
     }
 
     public String getListaOrdemDentista(){
-        CriterioNomeDentista criterioNomeDentista = new CriterioNomeDentista();
-        Collections.sort(listaConsulta.getLista(), criterioNomeDentista);
+        OrdenaNomeDentista criterioNomeDentista = new OrdenaNomeDentista();
+        GeneralizaArray<Consulta> novaListaConsulta = new GeneralizaArray();
+        novaListaConsulta.adcionaEmGrupo(listaConsulta.getLista());
+        Collections.sort(novaListaConsulta.getLista(), criterioNomeDentista);
         String d1 = new String();
-        for(Consulta consulta : listaConsulta.getLista()) {
+        for(Consulta consulta : novaListaConsulta.getLista()) {
                 d1 = consulta.getDentista().getTratamento() +
                     "\n" + "Valor para o doutor: " +
                     consulta.getDentista().getSalario() + "\nValor para Clinica: " +
