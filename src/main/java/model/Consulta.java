@@ -57,8 +57,8 @@ public class Consulta {
         for(Procedimento procedimento : listaProcedimento.getLista()) {
             consultas = procedimento.getNome() + ", " + consultas;
         }
-        return consultas + "para o paciente: " + this.paciente.getNome() +
-                " realizada pelo Dr(a): " + this.dentista.getNome();
+        return consultas + "para o " + this.paciente.getTratamento() +
+                " realizada pelo/a " + this.dentista.getTratamento();
     }
 
 }

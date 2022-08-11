@@ -1,5 +1,7 @@
 package api;
 
+import model.Consulta;
+
 import java.util.*;
 
 public class GeneralizaArray<T>{
@@ -33,5 +35,9 @@ public class GeneralizaArray<T>{
 
     public ArrayList<T> getLista(){
         return new ArrayList<T>(lista);
+    }
+
+    public void esvaziaLista(){
+        this.lista.removeAll(List.copyOf(lista));
     }
 }

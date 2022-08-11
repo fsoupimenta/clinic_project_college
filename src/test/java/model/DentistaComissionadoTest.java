@@ -50,4 +50,16 @@ class DentistaComissionadoTest {
         Assertions.assertEquals(d1.setPorcentagemComissao(0), true);
     }
 
+    @Test
+    public void shouldReturnSalary(){
+        Paciente p1 = new Paciente("Jose da Silva",
+                "jssilva@email.com",
+                LocalDate.of(2001, 04, 14), true);
+        Procedimento x1 = new Procedimento("Tratamento de Canal", 45000);
+        Consulta c1 = new Consulta(d1, p1);
+        c1.addProcedimento(x1);
+        Agenda a1 = new Agenda();
+        a1.addConsulta(c1);
+        Assertions.assertEquals(d1.getSalario(), 13500);
+    }
 }

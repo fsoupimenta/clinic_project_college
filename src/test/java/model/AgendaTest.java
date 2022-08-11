@@ -28,7 +28,8 @@ class AgendaTest {
         c1 = new Consulta(d1, p1);
         c1.addProcedimento(x1);
         a1 = new Agenda();
-        a1.addConsulta(c1);
+        a1.esvaziaLista();
+        a1.addConsulta(c1); 
     }
 
     @Test
@@ -111,10 +112,5 @@ class AgendaTest {
     public void shouldReturnPatientRating(){
         ClassificaPaciente.classificaPaciente(p1);
         Assertions.assertEquals(ClassificaPaciente.getClassificacao(p1), "A");
-    }
-
-    @Test
-    public void shouldTestGetList(){
-        Assertions.assertEquals(a1.getListaAgenda(), "");
     }
 }

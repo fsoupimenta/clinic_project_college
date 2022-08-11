@@ -92,4 +92,8 @@ public class Agenda{
         }
         return "Lista de Consultas da Clinica: \n" + d1;
     }
+
+    public void esvaziaLista(){
+        listaConsulta.esvaziaLista();
+    }
 }
