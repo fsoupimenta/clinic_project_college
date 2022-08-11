@@ -29,7 +29,7 @@ class AgendaTest {
         c1.addProcedimento(x1);
         a1 = new Agenda();
         a1.esvaziaLista();
-        a1.addConsulta(c1); 
+        a1.addConsulta(c1);
     }
 
     @Test
