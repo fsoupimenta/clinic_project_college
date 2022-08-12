@@ -8,34 +8,34 @@ import java.time.LocalDate;
 
 class ConsultaTest {
 
-    DentistaAssalariado d1;
-    Paciente p1;
-    Procedimento x1;
-    Consulta c1;
+    DentistaAssalariado dentista_I;
+    Paciente paciente_I;
+    Procedimento procedimento_I;
+    Consulta consulta_I;
     @BeforeEach
     public void init() {
-        d1 =
+        dentista_I =
                 new DentistaAssalariado("Rafael da Silva",
                         "rfsilva@email.com",
                         "1111", 900, true);
-        p1 =
+        paciente_I =
                 new Paciente("Jose da Silva",
                         "jssilva@email.com",
                         LocalDate.of(2001, 04, 14), true);
-        x1 =
+        procedimento_I =
                 new Procedimento("Tratamento de Canal", 800);
-        c1 = new Consulta(d1, p1);
-        c1.addProcedimento(x1);
+        consulta_I = new Consulta(dentista_I, paciente_I);
+        consulta_I.addProcedimento(procedimento_I);
     }
 
     @Test
     public void whenProcedureAdd_shouldCalculateConsult() {
-        Assertions.assertEquals(c1.valorConsulta(), 800);
+        Assertions.assertEquals(consulta_I.valorConsulta(), 800);
     }
 
     @Test
     public void checkDescription(){
-        Assertions.assertEquals(c1.getDescricao(), "Tratamento de Canal," +
+        Assertions.assertEquals(consulta_I.getDescricao(), "Tratamento de Canal," +
                 " para o Senhor Silva realizada pelo/a " +
                 "Dr. Rafael da Silva");
     }

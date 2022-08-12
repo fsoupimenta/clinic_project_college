@@ -45,19 +45,19 @@ public class Consulta {
     }
 
     public double valorConsulta() {
-        double total=0;
+        double totalConsulta=0;
         for(Procedimento procedimento : listaProcedimento.getLista()) {
-            total = total + procedimento.getPreco();
+            totalConsulta = totalConsulta + procedimento.getPreco();
         }
-        return total;
+        return totalConsulta;
     }
 
     public String getDescricao() {
-        String consultas = new String();
+        String listaConsultas = new String();
         for(Procedimento procedimento : listaProcedimento.getLista()) {
-            consultas = procedimento.getNome() + ", " + consultas;
+            listaConsultas = procedimento.getNome() + ", " + listaConsultas;
         }
-        return consultas + "para o " + this.paciente.getTratamento() +
+        return listaConsultas + "para o " + this.paciente.getTratamento() +
                 " realizada pelo/a " + this.dentista.getTratamento();
     }
 

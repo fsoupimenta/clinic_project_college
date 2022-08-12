@@ -28,15 +28,15 @@ public class Agenda{
         GeneralizaArray<Consulta> novaListaConsulta = new GeneralizaArray();
         novaListaConsulta.adcionaEmGrupo(listaConsulta.getLista());
         Collections.sort(novaListaConsulta.getLista(), criterioNomePaciente);
-        String d1 = new String();
+        String listaOrdenada = new String();
         for(Consulta consulta : novaListaConsulta.getLista()) {
-            d1 = consulta.getPaciente().getNome() +
+            listaOrdenada = consulta.getPaciente().getNome() +
                     "\n" + "Valor para o doutor: " +
                     consulta.getDentista().getSalario() + "\nValor para Clinica: " +
                     (totalizaValorAoDentista(consulta.getDentista()) -
-                            consulta.getDentista().getSalario()) + "\n" + d1;
+                            consulta.getDentista().getSalario()) + "\n" + listaOrdenada;
         }
-        return d1;
+        return listaOrdenada;
     }
 
     public String getListaOrdemDentista(){
@@ -44,15 +44,15 @@ public class Agenda{
         GeneralizaArray<Consulta> novaListaConsulta = new GeneralizaArray();
         novaListaConsulta.adcionaEmGrupo(listaConsulta.getLista());
         Collections.sort(novaListaConsulta.getLista(), criterioNomeDentista);
-        String d1 = new String();
+        String listaOrdenada = new String();
         for(Consulta consulta : novaListaConsulta.getLista()) {
-                d1 = consulta.getDentista().getTratamento() +
+            listaOrdenada = consulta.getDentista().getTratamento() +
                     "\n" + "Valor para o doutor: " +
                     consulta.getDentista().getSalario() + "\nValor para Clinica: " +
                     (totalizaValorAoDentista(consulta.getDentista()) -
-                            consulta.getDentista().getSalario()) + "\n" + d1;
+                            consulta.getDentista().getSalario()) + "\n" + listaOrdenada;
         }
-        return d1;
+        return listaOrdenada;
     }
 
     public static double totalizaValorAoDentista(Dentista dentista){
@@ -81,16 +81,12 @@ public class Agenda{
         return listaConsulta.tamanho();
     }
 
-    public ArrayList<Consulta> getListaAgenda(){
-        return listaConsulta.getLista();
-    }
-
     public String getAgenda() {
-        String d1 = new String();
+        String historicoConsulta = new String();
         for(Consulta consulta : listaConsulta.getLista()) {
-            d1 = consulta + "\n" + d1;
+            historicoConsulta = consulta + "\n" + historicoConsulta;
         }
-        return "Lista de Consultas da Clinica: \n" + d1;
+        return "Lista de Consultas da Clinica: \n" + historicoConsulta;
     }
 
     public void esvaziaLista(){

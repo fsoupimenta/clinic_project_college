@@ -44,7 +44,7 @@ public class Procedimento {
     }
 
     public String getDescricao() {
-        return this.nome + " -Preco: " + this.preco + "R$";
+        return this.nome + " -Preco: " + "R$" + this.preco;
     }
 
 }

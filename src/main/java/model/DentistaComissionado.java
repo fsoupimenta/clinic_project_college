@@ -4,7 +4,6 @@ import exceptions.ErroComissao;
 
 public class DentistaComissionado extends Dentista {
     private double porcentagemComissao;
-    private double salario=0;
 
     public DentistaComissionado(String nome, String email, String cro, double porcentagemComissao, boolean sexo) {
         super(nome, email, cro, sexo);

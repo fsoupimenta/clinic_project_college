@@ -22,10 +22,11 @@ public class ClassificaPaciente {
         return classificacaoPaciente.get(paciente);
     }
 
+    public static void removeKey(Paciente paciente){
+        classificacaoPaciente.remove(paciente);
+    }
+
     public static Set<Paciente> getLista(){
-        for(Paciente paciente : classificacaoPaciente.keySet()){
-            ClassificaPaciente.classificaPaciente(paciente);
-        }
         Set<Paciente> lista = classificacaoPaciente.keySet();
         return lista;
     }

@@ -6,8 +6,8 @@ class ProcedimentoTest {
 
     @Test
     public void checkDescription() {
-        Procedimento x1 =
+        Procedimento procedimento_I =
                 new Procedimento("Tratamento de Canal", 800);
-        Assertions.assertEquals(x1.getDescricao(), "Tratamento de Canal -Preco: 800.0R$");
+        Assertions.assertEquals(procedimento_I.getDescricao(), "Tratamento de Canal -Preco: 800.0R$");
     }
 }
