@@ -17,7 +17,7 @@ public class Paciente {
         this.nome = nome;
         this.email = email;
         this.dataDeNascimento = dataDeNascimento;
-        this.codigo = this.codigo = " P" + ++proximoCodigo;
+        this.codigo = " P" + proximoCodigo++;
     }
 
     public String getNome(){
@@ -54,6 +54,10 @@ public class Paciente {
 
     public String getDescricao() {
         return "Sr(a) " + this.nome + " -Data de Nascimento: " + dataDeNascimento.format(formatador) +  " -Email: " + this.email;
+    }
+
+    public static void setContador(int valor){
+        proximoCodigo = valor;
     }
 
 }

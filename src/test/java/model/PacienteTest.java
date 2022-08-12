@@ -1,7 +1,5 @@
 package model;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
 
@@ -25,6 +23,13 @@ class PacienteTest {
 
     @Test
     public void verifica_codigo(){
-        Assertions.assertEquals(p1.getCodigo(), "PA1");
+        Assertions.assertEquals(p1.getCodigo(), " P1");
+    }
+
+    @AfterEach
+    public void cleanUp(){
+        Dentista.setContador(1);
+        Paciente.setContador(1);
+        Procedimento.setContador(1);
     }
 }

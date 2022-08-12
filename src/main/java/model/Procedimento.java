@@ -41,4 +41,8 @@ public class Procedimento {
         return this.nome + " - Custo: " + this.preco;
     }
 
+    public static void setContador(int valor){
+        contador = valor;
+    }
+
 }
