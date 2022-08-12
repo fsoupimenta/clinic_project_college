@@ -20,10 +20,6 @@
         }
 
         public String getDentista() {
-            return "É um dentista assalariado";
-        }
-
-        public Dentista getObjectDentista(){
-            return new DentistaAssalariado(this.nome, this.email, this.cro, this.salario);
+            return "Sou um dentista assalariado";
         }
     }

@@ -93,8 +93,6 @@ public class Principal {
         System.out.println("\n-------Teste da Parte 4-------\n");
         System.out.println("Salario do Dr(a) " + d1.getNome() + ": " + d1.getSalario());
         System.out.println("Salario do Dr(a) " + d2.getNome() + ": " + d2.getSalario());
-        System.out.println("O/A Dr(a)" + d1.getNome() + " " +IdentificadorDeDentista.identificaDentista(d1));
-        System.out.println("O/A Dr(a)" + d2.getNome() + " " +IdentificadorDeDentista.identificaDentista(d2));
     }
 
 }
