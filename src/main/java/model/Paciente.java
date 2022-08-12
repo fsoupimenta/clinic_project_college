@@ -8,14 +8,14 @@ public class Paciente {
     private String email;
     private LocalDate dataDeNascimento;
     private static DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static int proximoCodigo=1;
     private String codigo;
-    private static int contador=1;
 
     public Paciente(String nome, String email, LocalDate dataDeNascimento){
         this.nome = nome;
         this.email = email;
         this.dataDeNascimento = dataDeNascimento;
-        this.codigo = "PA" + contador++;
+        this.codigo = " P" + proximoCodigo++;
     }
 
     public Paciente(Paciente paciente) {

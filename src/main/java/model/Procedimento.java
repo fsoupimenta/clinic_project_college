@@ -6,11 +6,9 @@ public class Procedimento {
     private String codigo;
     private static int contador=1;
 
-
     public Procedimento(String nome, double preco){
         this.nome = nome;
         this.preco = preco;
-        this.codigo = "PO" + contador++;
     }
 
     public Procedimento(Procedimento procedimento) {
@@ -37,6 +35,14 @@ public class Procedimento {
 
     public String getCodigo(){
         return this.codigo;
+    }
+
+    public double getPreco(double Preco){
+        return this.preco;
+    }
+
+    public void setPreco(){
+        this.preco = preco;
     }
 
     public String toString() {
