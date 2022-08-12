@@ -13,6 +13,14 @@ public class DentistaComissionado extends Dentista {
         this.porcentagemComissao = 0.3;
     }
 
+    public double getSalario(){
+        return this.salario;
+    }
+
+    public void setSalario(double salario){
+        this.salario = salario * this.porcentagemComissao;
+    }
+
     public double getPorcentagemComissao() {
         return this.porcentagemComissao;
     }

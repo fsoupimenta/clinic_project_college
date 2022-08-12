@@ -39,4 +39,8 @@ public class Procedimento {
         return this.nome + " -Preco: " + this.preco + "R$";
     }
 
+    public static void setContador(int contador){
+        contador = contador;
+    }
+
 }

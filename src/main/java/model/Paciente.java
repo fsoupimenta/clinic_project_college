@@ -33,4 +33,8 @@ public class Paciente extends Pessoa {
         return "Sr(a) " + super.getDescricao() + " -Data de Nascimento: " +
                 getDataDeNascimento().format(formatador);
     }
+
+    public static void setContador(int contador){
+        proximoCodigo = contador;
+    }
 }
