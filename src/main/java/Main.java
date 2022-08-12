@@ -2,7 +2,7 @@ import java.time.LocalDate;
 
 import model.*;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
         Dentista d1 = new Dentista("Rafael da Silva",
