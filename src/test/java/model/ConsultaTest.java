@@ -2,7 +2,7 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-
+import org.junit.jupiter.api.AfterEach;
 import java.time.LocalDate;
 
 
@@ -37,5 +37,12 @@ class ConsultaTest {
     @Test
     public void verifica_valor_consulta(){
         Assertions.assertEquals(c1.valorConsulta(), 499);
+    }
+
+    @AfterEach
+    public void cleanUp(){
+        Dentista.setContador(1);
+        Paciente.setContador(1);
+        Procedimento.setContador(1);
     }
 }

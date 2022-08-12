@@ -1,4 +1,5 @@
 package model;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -49,6 +50,13 @@ class AgendaTest {
     public void verifica_naoExistencia_consulta(){
         a1.removeConsulta(c1);
         Assertions.assertEquals(a1.verificaConsulta(c1), false);
+    }
+
+    @AfterEach
+    public void cleanUp(){
+        Dentista.setContador(1);
+        Paciente.setContador(1);
+        Procedimento.setContador(1);
     }
 
 }
