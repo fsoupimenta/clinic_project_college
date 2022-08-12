@@ -15,6 +15,7 @@ public abstract class Dentista extends Pessoa implements TratamentoEspecifico {
     public Dentista(Dentista dentista) {
         super(dentista.nome, dentista.email, dentista.sexo);
         this.cro = dentista.cro;
+        this.codigo = dentista.getCodigo();
     }
 
     public String getCro() {

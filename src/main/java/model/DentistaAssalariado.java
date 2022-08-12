@@ -6,6 +6,13 @@ public class DentistaAssalariado extends Dentista {
         this.salario = salario;
     }
 
+    public DentistaAssalariado (String nome, String email, String cro, double salario,
+                                boolean sexo, String codigo) {
+        super(nome, email, cro, sexo);
+        this.salario = salario;
+        this.codigo = codigo;
+    }
+
     public void setSalario(double valor) {
         this.salario = valor;
     }
@@ -21,6 +28,7 @@ public class DentistaAssalariado extends Dentista {
 
     @Override
     public Dentista getDentista(){
-        return new DentistaAssalariado(this.nome, this.email, this.cro, this.salario, this.sexo);
+        return new DentistaAssalariado(this.nome, this.email, this.cro, this.salario,
+                this.sexo, this.codigo);
     }
 }

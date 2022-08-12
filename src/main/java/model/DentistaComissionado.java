@@ -15,6 +15,17 @@ public class DentistaComissionado extends Dentista {
         }
     }
 
+    public DentistaComissionado(String nome, String email, String cro, double porcentagemComissao,
+                                boolean sexo, String codigo) {
+        super(nome, email, cro, sexo);
+        this.codigo = codigo;
+        try {
+            setPorcentagemComissao(porcentagemComissao);
+        }catch (ErroComissao e){
+            System.out.println(e.getMessage());
+        }
+    }
+
     public double getSalario(){
         return Agenda.totalizaValorAoDentista(this) * this.porcentagemComissao;
     }
@@ -37,7 +48,8 @@ public class DentistaComissionado extends Dentista {
 
     @Override
     public Dentista getDentista(){
-        return new DentistaComissionado(this.nome, this.email, this.cro, this.porcentagemComissao, this.sexo);
+        return new DentistaComissionado(this.nome, this.email, this.cro, this.porcentagemComissao,
+                this.sexo, this.codigo);
     }
 }
 

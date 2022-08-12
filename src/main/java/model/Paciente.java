@@ -19,6 +19,7 @@ public class Paciente extends Pessoa implements TratamentoEspecifico {
     public Paciente(Paciente paciente) {
         super(paciente.nome, paciente.email, paciente.sexo);
         this.dataDeNascimento = paciente.dataDeNascimento;
+        this.codigo = paciente.getCodigo();
     }
 
     public LocalDate getDataDeNascimento() {

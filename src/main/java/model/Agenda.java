@@ -58,7 +58,7 @@ public class Agenda{
     public static double totalizaValorAoDentista(Dentista dentista){
         double valorAoDentista=0;
         for(Consulta consulta : listaConsulta.getLista()){
-            if(dentista.nome.equals(consulta.getDentista().getNome())){
+            if(dentista.getCodigo().equals(consulta.getDentista().getCodigo())){
                 valorAoDentista = consulta.valorConsulta() + valorAoDentista;
             }
         }
@@ -68,7 +68,7 @@ public class Agenda{
     public static double totalizaValorAoPaciente(Paciente paciente){
         double valorAoPaciente=0;
         for(Consulta consulta : listaConsulta.getLista()){
-            if(paciente.getNome().equals(consulta.getPaciente().getNome())){
+            if(paciente.getCodigo().equals(consulta.getPaciente().getCodigo())){
                 valorAoPaciente = consulta.valorConsulta() + valorAoPaciente;
             }
         }
