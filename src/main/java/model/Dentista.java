@@ -6,7 +6,7 @@ public class Dentista {
     private String cro;
     private String codigo;
     private static int contador=1;
-
+    
     public Dentista(String nome, String email, String cro){
         this.nome = nome;
         this.email = email;
