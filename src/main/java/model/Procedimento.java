@@ -1,16 +1,21 @@
 package model;
 
 public class Procedimento {
-    String nome;
-    double preco;
+    private String nome;
+    private double preco;
     private String codigo;
     private static int contador=1;
-
 
     public Procedimento(String nome, double preco){
         this.nome = nome;
         this.preco = preco;
         this.codigo = "PO" + contador++;
+    }
+
+    public Procedimento(Procedimento procedimento) {
+        this.nome = procedimento.nome;
+        this.preco = procedimento.preco;
+        this.codigo = procedimento.codigo;
     }
 
     public String getNome(){
@@ -33,16 +38,24 @@ public class Procedimento {
         return this.codigo;
     }
 
+    public double getPreco(double Preco){
+        return this.preco;
+    }
+
+    public void setPreco(){
+        this.preco = preco;
+    }
+
+    public static void setContador(int valor){
+        contador = valor;
+    }
+
     public String toString() {
         return getDescricao();
     }
 
     public String getDescricao() {
         return this.nome + " - Custo: " + this.preco;
-    }
-
-    public static void setContador(int valor){
-        contador = valor;
     }
 
 }

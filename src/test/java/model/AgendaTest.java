@@ -1,5 +1,8 @@
 package model;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.time.LocalDate;
 
@@ -22,7 +25,7 @@ class AgendaTest {
                 LocalDate.of(2001, 04, 14));
         x1 = new Procedimento("Tratamento de Canal", 499);
         c1 = new Consulta(d1, p1, x1);
-        a1 = new Agenda(1);
+        a1 = new Agenda();
         a1.addConsulta(c1);
     }
 
@@ -36,10 +39,22 @@ class AgendaTest {
         Assertions.assertEquals(a1.calculaFaturamento(), 499);
     }
 
+    @Test
+    public void verifica_existencia_consulta(){
+        Assertions.assertEquals(a1.verificaConsulta(c1), true);
+    }
+
+    @Test
+    public void verifica_naoExistencia_consulta(){
+        a1.removeConsulta(c1);
+        Assertions.assertEquals(a1.verificaConsulta(c1), false);
+    }
+
     @AfterEach
     public void cleanUp(){
         Dentista.setContador(1);
         Paciente.setContador(1);
         Procedimento.setContador(1);
     }
+
 }

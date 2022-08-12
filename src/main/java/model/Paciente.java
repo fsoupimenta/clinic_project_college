@@ -8,9 +8,7 @@ public class Paciente {
     private String email;
     private LocalDate dataDeNascimento;
     private static DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
     private static int proximoCodigo=1;
-
     private String codigo;
 
     public Paciente(String nome, String email, LocalDate dataDeNascimento){
@@ -18,6 +16,13 @@ public class Paciente {
         this.email = email;
         this.dataDeNascimento = dataDeNascimento;
         this.codigo = " P" + proximoCodigo++;
+    }
+
+    public Paciente(Paciente paciente) {
+        this.nome = paciente.nome;
+        this.email = paciente.email;
+        this.dataDeNascimento = paciente.dataDeNascimento;
+        this.codigo = paciente.codigo;
     }
 
     public String getNome(){
@@ -52,12 +57,12 @@ public class Paciente {
         return getDescricao();
     }
 
-    public String getDescricao() {
-        return "Sr(a) " + this.nome + " -Data de Nascimento: " + dataDeNascimento.format(formatador) +  " -Email: " + this.email;
-    }
-
     public static void setContador(int valor){
         proximoCodigo = valor;
+    }
+
+    public String getDescricao() {
+        return "Sr(a) " + this.nome + " -Data de Nascimento: " + dataDeNascimento.format(formatador) +  " -Email: " + this.email;
     }
 
 }

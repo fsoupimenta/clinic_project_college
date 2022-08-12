@@ -14,6 +14,13 @@ public class Dentista {
         this.codigo = "DE" + contador++;
     }
 
+    public Dentista(Dentista dentista) {
+        this.nome = dentista.nome;
+        this.email = dentista.email;
+        this.cro = dentista.cro;
+        this.codigo = dentista.codigo;
+    }
+
     public String getNome(){
         return this.nome;
     }
@@ -46,13 +53,12 @@ public class Dentista {
         return getDescricao();
     }
 
-    public String getDescricao() {
-        return "Dr(a) " + this.nome + " -Email: "
-                + this.email + " -CRO: " + this.cro;
-    }
-
     public static void setContador(int valor){
         contador = valor;
     }
 
+    public String getDescricao() {
+        return "Dr(a) " + this.nome + " -Email: "
+                + this.email + " -CRO: " + this.cro;
+    }
 }

@@ -12,7 +12,7 @@ public class Consulta {
     }
 
     public Dentista getDentista(){
-        return this.dentista;
+        return new Dentista(this.dentista);
     }
 
     public void setDentista(Dentista dentista){
@@ -20,7 +20,7 @@ public class Consulta {
     }
 
     public Paciente getPaciente(){
-        return this.paciente;
+        return new Paciente(this.paciente);
     }
 
     public void setPaciente(Paciente paciente){
@@ -28,7 +28,7 @@ public class Consulta {
     }
 
     public Procedimento getProcedimento(){
-        return this.procedimento;
+        return new Procedimento(this.procedimento) ;
     }
 
     public void setProcedimento(Procedimento procedimento){
