@@ -1,18 +1,36 @@
 package model;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DentistaTest {
 
-    @Test
-    public void verifica_descricao() {
-        Dentista d1 = new Dentista("Rafael da Silva",
+    Dentista d1;
+    @BeforeEach
+    public void init(){
+        d1 = new Dentista("Rafael da Silva",
                 "rfsilva@email.com",
                 "1111");
+    }
+
+    @Test
+    public void verifica_descricao(){
         Assertions.assertEquals(d1.getDescricao(), "Dr(a) Rafael da Silva " +
                 "-Email: rfsilva@email.com -CRO: 1111");
+    }
+
+    @Test
+    public void verifica_codigo(){
+        Assertions.assertEquals(d1.getCodigo(), "DE1");
+    }
+
+    @AfterEach
+    public void cleanUp(){
+        Dentista.setContador(1);
+        Paciente.setContador(1);
+        Procedimento.setContador(1);
     }
 }

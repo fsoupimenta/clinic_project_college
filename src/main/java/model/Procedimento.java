@@ -3,11 +3,14 @@ package model;
 public class Procedimento {
     String nome;
     double preco;
+    private String codigo;
+    private static int contador=1;
 
 
     public Procedimento(String nome, double preco){
         this.nome = nome;
         this.preco = preco;
+        this.codigo = "PO" + contador++;
     }
 
     public String getNome(){
@@ -18,12 +21,16 @@ public class Procedimento {
         this.nome = nome;
     }
 
-    public double getPreco(double Preco){
+    public double getPreco(){
         return this.preco;
     }
 
-    public void setPreco(){
+    public void setPreco(double preco){
         this.preco = preco;
+    }
+
+    public String getCodigo(){
+        return this.codigo;
     }
 
     public String toString() {
@@ -32,6 +39,10 @@ public class Procedimento {
 
     public String getDescricao() {
         return this.nome + " - Custo: " + this.preco;
+    }
+
+    public static void setContador(int valor){
+        contador = valor;
     }
 
 }
