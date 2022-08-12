@@ -2,6 +2,7 @@ package api;
 import model.Paciente;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class ClassificaPaciente {
     private static final HashMap<Paciente, String> classificacaoPaciente = new HashMap<>();
@@ -19,5 +20,13 @@ public class ClassificaPaciente {
     public static String getClassificacao(Paciente paciente){
         classificaPaciente(paciente);
         return classificacaoPaciente.get(paciente);
+    }
+
+    public static Set<Paciente> getLista(){
+        for(Paciente paciente : classificacaoPaciente.keySet()){
+            ClassificaPaciente.classificaPaciente(paciente);
+        }
+        Set<Paciente> lista = classificacaoPaciente.keySet();
+        return lista;
     }
 }
