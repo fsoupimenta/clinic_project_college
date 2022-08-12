@@ -1,4 +1,5 @@
 package model;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -23,5 +24,12 @@ class ProcedimentoTest {
     @Test
     public void verifica_codigo(){
         Assertions.assertEquals(x1.getCodigo(), "PO1");
+    }
+
+    @AfterEach
+    public void cleanUp(){
+        Dentista.setContador(1);
+        Paciente.setContador(1);
+        Procedimento.setContador(1);
     }
 }

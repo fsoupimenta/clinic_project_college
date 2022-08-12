@@ -6,7 +6,7 @@ public class Dentista {
     private String cro;
     private String codigo;
     private static int contador=1;
-    
+
     public Dentista(String nome, String email, String cro){
         this.nome = nome;
         this.email = email;
@@ -51,6 +51,10 @@ public class Dentista {
 
     public String toString() {
         return getDescricao();
+    }
+
+    public static void setContador(int valor){
+        contador = valor;
     }
 
     public String getDescricao() {

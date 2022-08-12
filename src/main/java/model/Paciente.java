@@ -57,6 +57,10 @@ public class Paciente {
         return getDescricao();
     }
 
+    public static void setContador(int valor){
+        proximoCodigo = valor;
+    }
+
     public String getDescricao() {
         return "Sr(a) " + this.nome + " -Data de Nascimento: " + dataDeNascimento.format(formatador) +  " -Email: " + this.email;
     }
