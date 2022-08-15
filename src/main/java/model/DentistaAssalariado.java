@@ -16,7 +16,6 @@ public class DentistaAssalariado extends Dentista {
         this.salario = valor;
     }
 
-    @Override
     public double getSalario() {
         return this.salario;
     }

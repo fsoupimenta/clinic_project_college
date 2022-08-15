@@ -16,7 +16,7 @@
                 <version>3.2.2</version>
                 <configuration>
                     <archive>
-                        <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+                        <manifestFile>src/Main/resources/META-INF/MANIFEST.MF</manifestFile>
                     </archive>
                 </configuration>
                 </plugin>
