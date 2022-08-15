@@ -9,13 +9,13 @@ public class Procedimento {
     public Procedimento(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
-        this.codigo = " PO" + ++proximoCodigo;
+        this.codigo = "PO" + ++proximoCodigo;
     }
 
     public Procedimento(Procedimento procedimento) {
         this.nome = procedimento.nome;
         this.preco = procedimento.preco;
-        this.codigo = procedimento.codigo;
+        this.codigo = procedimento.getCodigo();
     }
 
     @Override
@@ -45,6 +45,10 @@ public class Procedimento {
 
     public String getDescricao() {
         return this.nome + " -Preco: " + this.preco + "R$";
+    }
+
+    public static void setContador(int contador){
+        contador = contador;
     }
 
 }
