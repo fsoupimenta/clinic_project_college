@@ -4,10 +4,12 @@ public class Pessoa {
     protected String nome;
     protected String email;
     protected String codigo;
+    protected boolean sexo;
 
-    public Pessoa(String nome, String email) {
+    public Pessoa(String nome, String email, boolean sexo) {
         this.nome = nome;
         this.email = email;
+        this.sexo = sexo;
     }
 
     @Override
@@ -29,6 +31,17 @@ public class Pessoa {
 
     public void setEmail(String email){
         this.email = email;
+    }
+
+    public String getSexo(){
+        if(this.sexo){
+            return "Masculino";
+        }
+        return "Feminino";
+    }
+
+    public void setSexo(boolean sexo){
+        this.sexo = sexo;
     }
 
     public String getCodigo() {

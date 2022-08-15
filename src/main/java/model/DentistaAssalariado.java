@@ -1,16 +1,17 @@
 package model;
 
 public class DentistaAssalariado extends Dentista {
-    public DentistaAssalariado (String nome, String email, String cro, double salario) {
-        super(nome, email, cro);
+    public DentistaAssalariado (String nome, String email, String cro, double salario, boolean sexo) {
+        super(nome, email, cro, sexo);
         this.salario = salario;
     }
 
     public DentistaAssalariado(Dentista dentista) {
-        super(dentista.nome, dentista.email, dentista.cro);
-        this.salario = dentista.salario;
+        super(dentista.nome, dentista.email, dentista.cro, dentista.sexo);
+        this.salario = dentista.getSalario();
     }
 
+    @Override
     public void setSalario(double valor) {
         this.salario = valor;
     }
@@ -20,6 +21,6 @@ public class DentistaAssalariado extends Dentista {
     }
     @Override
     public Dentista getDentista(){
-        return new DentistaAssalariado(this.nome, this.email, this.cro, this.salario);
+        return new DentistaAssalariado(this.nome, this.email, this.cro, this.salario, this.sexo);
     }
 }

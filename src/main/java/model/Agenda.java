@@ -1,7 +1,11 @@
 package model;
-import java.util.ArrayList;
+import api.CriterioNomeDentista;
+import api.CriterioNomePaciente;
 
-public class Agenda {
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Agenda{
     private ArrayList<Consulta> listaConsulta;
 
     public Agenda(){
@@ -35,7 +39,16 @@ public class Agenda {
         return true;
     }
 
-    public double faturamento() {
+    public void ordenaNomePaciente(){
+        CriterioNomePaciente criterioNomePaciente = new CriterioNomePaciente();
+        Collections.sort(this.listaConsulta, criterioNomePaciente);
+    }
+
+    public void ordenaNomeDentista(){
+        CriterioNomeDentista criterioNomeDentista = new CriterioNomeDentista();
+        Collections.sort(this.listaConsulta, criterioNomeDentista);
+    }
+    public double getFaturamento() {
         double totalSalario=0;
         double totalRecebido =0;
         String nome = new String();

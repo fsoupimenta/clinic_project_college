@@ -1,21 +1,23 @@
 package model;
 
+import interfaces.TratamentoEspecifico;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Paciente extends Pessoa {
+public class Paciente extends Pessoa implements TratamentoEspecifico {
     private LocalDate dataDeNascimento;
     private static int proximoCodigo = 0;
     private static DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public Paciente(String nome, String email, LocalDate dataDeNascimento) {
-        super(nome, email);
+    public Paciente(String nome, String email, LocalDate dataDeNascimento, boolean sexo) {
+        super(nome, email, sexo);
         this.dataDeNascimento = dataDeNascimento;
-        this.codigo = "PA" + ++proximoCodigo;
+        this.codigo = " P" + ++proximoCodigo;
     }
 
     public Paciente(Paciente paciente) {
-        super(paciente.nome, paciente.email);
+        super(paciente.nome, paciente.email, paciente.sexo);
         this.dataDeNascimento = paciente.dataDeNascimento;
         this.codigo = paciente.getCodigo();
     }
@@ -30,11 +32,20 @@ public class Paciente extends Pessoa {
 
     @Override
     public String getDescricao() {
-        return "Sr(a) " + super.getDescricao() + " -Data de Nascimento: " +
+        return getTratamento() + " -Email: " + getEmail() + " -Data de Nascimento: " +
                 getDataDeNascimento().format(formatador);
     }
 
-    public static void setContador(int contador){
+    public String getTratamento() {
+        String[] sobreNome = getNome().split(" ");
+        if (this.sexo) {
+            return "Senhor " + sobreNome[sobreNome.length - 1];
+        } else {
+            return "Senhora " + sobreNome[sobreNome.length - 1];
+        }
+    }
+
+    public static void setContador ( int contador){
         proximoCodigo = contador;
     }
 }

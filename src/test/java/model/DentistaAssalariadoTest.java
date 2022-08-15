@@ -9,17 +9,26 @@ class DentistaAssalariadoTest {
     DentistaAssalariado d1;
     @BeforeEach
     public void init() {
-        d1 = new DentistaAssalariado("Rafael da Silva",
+        d1 =
+                new DentistaAssalariado("Rafael da Silva",
                         "rfsilva@email.com",
-                        "1111", 900);
+                        "1111", 900, true);
     }
     @Test
-    public void verifica_descricao() {
-        Assertions.assertEquals(d1.getDescricao(), "Dr(a): Rafael da Silva " +
-                "-Email:rfsilva@email.com -CRO: 1111");
+    void checkDescription() {
+        Assertions.assertEquals(d1.getDescricao(), "Dr. Rafael da Silva " +
+                "-Email: rfsilva@email.com -CRO: 1111");
     }
+
     @Test
-    public void verifica_salario(){
+    public void checkSalary(){
+        Assertions.assertEquals(d1.getSalario(), 900);
+    }
+
+    @Test
+    void verifica_salario(){
+        Assertions.assertEquals(d1.getDescricao(), "Dr. Rafael da Silva " +
+                "-Email: rfsilva@email.com -CRO: 1111");
         Assertions.assertEquals(d1.getSalario(), 900);
     }
 }

@@ -45,8 +45,16 @@ public class Consulta {
         return new Paciente(this.paciente);
     }
 
+    public void setPaciente(Paciente paciente){
+        this.paciente = paciente;
+    }
+
     public Dentista getDentista() {
         return this.dentista.getDentista();
+    }
+
+    public void setDentista(Dentista dentista){
+        this.dentista = dentista;
     }
 
     public double valorConsulta() {

@@ -20,15 +20,25 @@ class AgendaTest {
         d1 =
                 new DentistaAssalariado("Rafael da Silva",
                         "rfsilva@email.com",
-                        "1111", 900);
+                        "1111", 900, true);
         p1 = new Paciente("Jose da Silva",
                 "jssilva@email.com",
-                LocalDate.of(2001, 04, 14));
+                LocalDate.of(2001, 04, 14), true);
         x1 = new Procedimento("Tratamento de Canal", 499);
         c1 = new Consulta(d1, p1);
         c1.addProcedimento(x1);
         a1 = new Agenda();
         a1.addConsulta(c1);
+    }
+
+    @Test
+    public void checkAmountConsult() {
+        Assertions.assertEquals(a1.qtdConsultas(), 1);
+    }
+
+    @Test
+    public void checkInvoicing() {
+        Assertions.assertEquals(a1.getFaturamento(), 0);
     }
 
     @Test
@@ -38,7 +48,7 @@ class AgendaTest {
 
     @Test
     public void verifica_faturamento() {
-        Assertions.assertEquals(a1.faturamento(), 0);
+        Assertions.assertEquals(a1.getFaturamento(), 0);
     }
 
     @Test
@@ -58,5 +68,4 @@ class AgendaTest {
         Paciente.setContador(1);
         Procedimento.setContador(1);
     }
-
 }

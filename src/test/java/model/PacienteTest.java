@@ -1,26 +1,18 @@
 package model;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 class PacienteTest {
 
-    Paciente p1;
-    @BeforeEach
-    public void init(){
-        p1 = new Paciente("Jose da Silva",
-                "jssilva@email.com",
-                LocalDate.of(2001, 04, 14));
-    }
-
     @Test
-    public void verifica_descricao() {
-        Assertions.assertEquals(p1.getDescricao(), "Sr(a) Jose da Silva " +
-                "-Email:jssilva@email.com -Data de Nascimento: 14/04/2001");
+    void checkDescription() {
+        Paciente p1 =
+                new Paciente("Jose da Silva",
+                        "jssilva@email.com",
+                        LocalDate.of(2001, 04, 14), true);
+        Assertions.assertEquals(p1.getDescricao(),"Senhor Silva " +
+                "-Email: jssilva@email.com -Data de Nascimento: 14/04/2001");
     }
-
 }
