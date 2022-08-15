@@ -1,0 +1,227 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "modelclass.Agenda",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_2108506095 { 
+   	label=modelclass
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Agenda2108506095[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Agenda</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   consulta: ArrayList&lt;Consulta&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addConsulta(consulta: Consulta)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ faturamento(): double</TD></TR>
+<TR><TD ALIGN="LEFT" >+ qtdConsultas(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeConsulta(consulta: Consulta)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ verificaConsulta(consulta: Consulta): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Consulta2108506095[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Consulta</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   dentista: Dentista [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   paciente: Paciente [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   procedimento: ArrayList&lt;Procedimento&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addProcedimento(procedimento: Procedimento)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeProcedimento(procedimento: Procedimento)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ valorConsulta(): double</TD></TR>
+<TR><TD ALIGN="LEFT" >+ verificaProcedimento(procedimento: Procedimento): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Dentista2108506095[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Dentista</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   cro: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   salario: double [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ calculaSalario(valor: double): double</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+DentistaAssalariado2108506095[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DentistaAssalariado</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ calculaSalario(valor: double): double</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+DentistaComissionado2108506095[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DentistaComissionado</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   porcentagemComissao: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   salario: double [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ calculaSalario(valor: double): double</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Paciente2108506095[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Paciente</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   dataDeNascimento: LocalDate [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Pessoa2108506095[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Pessoa</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   codigo: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   email: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   nome: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Procedimento2108506095[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Procedimento</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   codigo: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nome: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   preco: double [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Agenda2108506095 -> Consulta2108506095[label="consulta
+[0..*]"];
+Consulta2108506095 -> Dentista2108506095[label="dentista
+[0..1]"];
+Consulta2108506095 -> Paciente2108506095[label="paciente
+[0..1]"];
+Consulta2108506095 -> Procedimento2108506095[label="procedimento
+[0..*]"];
+Dentista2108506095 -> DentistaAssalariado2108506095[arrowhead=none, arrowtail=empty, dir=both];
+Dentista2108506095 -> DentistaComissionado2108506095[arrowhead=none, arrowtail=empty, dir=both];
+Pessoa2108506095 -> Dentista2108506095[arrowhead=none, arrowtail=empty, dir=both];
+Pessoa2108506095 -> Paciente2108506095[arrowhead=none, arrowtail=empty, dir=both];
+    
+}
+@enduml

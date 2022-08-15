@@ -3,59 +3,44 @@ package model;
 public class Procedimento {
     private String nome;
     private double preco;
+    private static int proximoCodigo = 0;
     private String codigo;
-    private static int contador=1;
 
-    public Procedimento(String nome, double preco){
+    public Procedimento(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
-        this.codigo = "PO" + contador++;
+        this.codigo = "PO" + ++proximoCodigo;
     }
 
     public Procedimento(Procedimento procedimento) {
         this.nome = procedimento.nome;
         this.preco = procedimento.preco;
-        this.codigo = procedimento.codigo;
+        this.codigo = procedimento.getCodigo();
     }
 
-    public String getNome(){
-        return this.nome;
-    }
-
-    public void setNome(String nome){
-        this.nome = nome;
-    }
-
-    public double getPreco(){
-        return this.preco;
-    }
-
-    public void setPreco(double preco){
-        this.preco = preco;
-    }
-
-    public String getCodigo(){
-        return this.codigo;
-    }
-
-    public double getPreco(double Preco){
-        return this.preco;
-    }
-
-    public void setPreco(){
-        this.preco = preco;
-    }
-
-    public static void setContador(int valor){
-        contador = valor;
-    }
-
+    @Override
     public String toString() {
         return getDescricao();
     }
 
+    public String getNome() {
+        return this.nome;
+    }
+
+    public Double getPreco() {
+        return this.preco;
+    }
+
+    public String getCodigo() {
+        return this.codigo;
+    }
+
     public String getDescricao() {
-        return this.nome + " - Custo: " + this.preco;
+        return this.nome + " -Preco: " + this.preco + "R$";
+    }
+
+    public static void setContador(int contador){
+        contador = contador;
     }
 
 }

@@ -2,36 +2,62 @@ package model;
 import java.util.ArrayList;
 
 public class Agenda {
-    private ArrayList<Consulta> listaConsultas;
+    private ArrayList<Consulta> listaConsulta;
 
     public Agenda(){
-        this.listaConsultas = new ArrayList<Consulta>();
+        this.listaConsulta = new ArrayList<Consulta>();
+    }
+    @Override
+    public String toString() {
+        return getAgenda();
     }
 
-    public void addConsulta(Consulta consulta){
-        this.listaConsultas.add(consulta);
+    public boolean addConsulta(Consulta consulta) {
+        if(this.listaConsulta.add(consulta)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
-    public void removeConsulta(Consulta consulta) {
-        this.listaConsultas.remove(consulta);
+    public boolean removeConsulta(Consulta consulta) {
+        if(this.listaConsulta.remove(consulta)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public boolean verificaConsulta(Consulta consulta) {
-        if(this.listaConsultas.contains(consulta)) {
-            return true;
+        if(this.listaConsulta.indexOf(consulta) < 0) {
+            return false;
         }
-        return false;
+        return true;
     }
 
-    public double calculaFaturamento(){
-        double faturamento=0;
-        for(int i=0;i<this.listaConsultas.size();i++){
-            faturamento = this.listaConsultas.get(i).valorConsulta() + faturamento;
+    public double faturamento() {
+        double totalSalario=0;
+        double totalRecebido =0;
+        String nome = new String();
+        for(int i = 0; i<this.listaConsulta.size(); i++) {
+            if(this.listaConsulta.get(i).getDentista().getNome()!=nome) {
+                totalSalario = this.listaConsulta.get(i).getDentista().getSalario() + totalSalario;
+                nome = this.listaConsulta.get(i).getDentista().getNome();
+            }
+            totalRecebido = totalRecebido + this.listaConsulta.get(i).valorConsulta();
         }
-        return faturamento;
+        return totalRecebido - totalSalario;
+    }
+    public int qtdConsultas() {
+        return this.listaConsulta.size();
     }
 
-    public int qtdConsultas(){
-        return this.listaConsultas.size();
+    public String getAgenda() {
+        String d1 = new String();
+        for(int i = 0; i<this.listaConsulta.size(); i++) {
+            d1 = this.listaConsulta.get(i) + "\n" + d1;
+        }
+        return "Lista de Consultas da Clinica: \n" + d1;
     }
+
 }

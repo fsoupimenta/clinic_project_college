@@ -1,43 +1,22 @@
 package model;
 
-public class Dentista {
-    private String nome;
-    private String email;
-    private String cro;
-    private String codigo;
-    private static int contador=1;
+public abstract class Dentista extends Pessoa {
+    protected String cro;
+    protected double salario;
+    private static int proximoCodigo = 0;
 
     public Dentista(String nome, String email, String cro){
-        this.nome = nome;
-        this.email = email;
+        super(nome, email);
         this.cro = cro;
-        this.codigo = "DE" + contador++;
+        this.codigo = "DE" + ++proximoCodigo;
     }
-
     public Dentista(Dentista dentista) {
-        this.nome = dentista.nome;
-        this.email = dentista.email;
+        super(dentista.nome, dentista.email);
         this.cro = dentista.cro;
-        this.codigo = dentista.codigo;
+        this.codigo = dentista.getCodigo();
     }
 
-    public String getNome(){
-        return this.nome;
-    }
-
-    public void setNome(String nome){
-        this.nome = nome;
-    }
-
-    public String getEmail(){
-        return this.email;
-    }
-
-    public void setEmail(String email){
-        this.email = email;
-    }
-
-    public String getCro(){
+    public String getCro() {
         return this.cro;
     }
 
@@ -45,20 +24,17 @@ public class Dentista {
         this.cro = cro;
     }
 
-    public String getCodigo(){
-        return this.codigo;
-    }
+    public abstract double getSalario();
 
-    public String toString() {
-        return getDescricao();
-    }
+    public abstract void setSalario(double salario);
 
-    public static void setContador(int valor){
-        contador = valor;
-    }
-
+    public abstract Dentista getDentista();
+    @Override
     public String getDescricao() {
-        return "Dr(a) " + this.nome + " -Email: "
-                + this.email + " -CRO: " + this.cro;
+        return "Dr(a): " + super.getDescricao()+ " -CRO: " + this.cro;
+    }
+
+    public static void setContador(int contador){
+        contador = contador;
     }
 }
