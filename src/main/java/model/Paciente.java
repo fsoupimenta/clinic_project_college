@@ -30,6 +30,10 @@ public class Paciente extends Pessoa implements TratamentoEspecifico {
         this.dataDeNascimento = dataDeNascimento;
     }
 
+    public double calculaGastos(){
+        return Agenda.totalizaValorAoPaciente(this);
+    }
+
     @Override
     public String getDescricao() {
         return getTratamento() + " -Email: " + getEmail() + " -Data de Nascimento: " +

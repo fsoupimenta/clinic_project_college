@@ -10,25 +10,18 @@ public abstract class Dentista extends Pessoa implements TratamentoEspecifico {
     public Dentista(String nome, String email, String cro, boolean sexo){
         super(nome, email, sexo);
         this.cro = cro;
-        this.codigo = "DE" + ++proximoCodigo;
+        this.codigo = " D" + ++proximoCodigo;
     }
     public Dentista(Dentista dentista) {
         super(dentista.nome, dentista.email, dentista.sexo);
         this.cro = dentista.cro;
-        this.codigo = dentista.getCodigo();
     }
 
     public String getCro() {
         return this.cro;
     }
 
-    public void setCro(String cro){
-        this.cro = cro;
-    }
-
     public abstract double getSalario();
-
-    public abstract void setSalario(double salario);
 
     public abstract Dentista getDentista();
     @Override
@@ -42,9 +35,5 @@ public abstract class Dentista extends Pessoa implements TratamentoEspecifico {
         }else{
             return "Dra. " + getNome();
         }
-    }
-
-    public static void setContador(int contador){
-        contador = contador;
     }
 }

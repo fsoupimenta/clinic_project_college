@@ -26,19 +26,6 @@ class DentistaComissionadoTest {
                 "-Email: lcsilva@email.com -CRO: 1112");
     }
 
-   @Test
-   public void whenConsultCreate_shouldCalculateSalary(){
-       Paciente p1 =
-               new Paciente("Jose da Silva",
-                       "jssilva@email.com",
-                       LocalDate.of(2001, 04, 14), true);
-       Procedimento x1 =
-               new Procedimento("Tratamento de Canal", 800);
-       Consulta c1 = new Consulta(d1, p1);
-       c1.addProcedimento(x1);
-       Assertions.assertEquals(d1.getSalario(), 240);
-   }
-
     @Test
     public void shouldFailSetPorcentagemComissao_maxLimit(){
         assertThrows(ErroComissao.class, ()->{
@@ -47,7 +34,7 @@ class DentistaComissionadoTest {
     }
 
     @Test
-    public void shouldNotFailSetPorcentagemComissao_maxLimit(){
+    public void shouldNotFailSetPorcentagemComissao_maxLimit() throws ErroComissao{
         Assertions.assertEquals(d1.setPorcentagemComissao(0.5), true);
     }
 
@@ -59,7 +46,7 @@ class DentistaComissionadoTest {
     }
 
    @Test
-    public void shouldNotFailSetPorcentagemComissao_minLimit(){
+    public void shouldNotFailSetPorcentagemComissao_minLimit() throws ErroComissao{
         Assertions.assertEquals(d1.setPorcentagemComissao(0), true);
     }
 

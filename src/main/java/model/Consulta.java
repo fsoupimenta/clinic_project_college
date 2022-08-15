@@ -18,7 +18,6 @@ public class Consulta {
     }
 
     public boolean addProcedimento(Procedimento procedimento) {
-        this.dentista.setSalario(procedimento.getPreco());
         if(this.listaProcedimento.add(procedimento)) {
             return true;
         }else{
