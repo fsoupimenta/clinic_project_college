@@ -1,15 +1,14 @@
 package model;
-import java.util.ArrayList;
+import api.GeneralizaArray;
 
 public class Consulta {
     private Dentista dentista;
     private Paciente paciente;
-    private ArrayList<Procedimento> listaProcedimento;
+    private GeneralizaArray<Procedimento> listaProcedimento = new GeneralizaArray<>();
 
     public Consulta(Dentista dentista, Paciente paciente){
         this.dentista = dentista;
         this.paciente = paciente;
-        this.listaProcedimento = new ArrayList<Procedimento>();
     }
 
     @Override
@@ -18,26 +17,15 @@ public class Consulta {
     }
 
     public boolean addProcedimento(Procedimento procedimento) {
-        if(this.listaProcedimento.add(procedimento)) {
-            return true;
-        }else{
-            return false;
-        }
+        return this.listaProcedimento.adiciona(procedimento);
     }
 
     public boolean removeProcedimento(Procedimento procedimento) {
-        if(this.listaProcedimento.remove(procedimento)){
-            return true;
-        }else{
-            return false;
-        }
+        return this.listaProcedimento.retira(procedimento);
     }
 
     public boolean verificaProcedimento(Procedimento procedimento) {
-        if(this.listaProcedimento.indexOf(procedimento) < 0) {
-            return false;
-        }
-        return true;
+        return this.listaProcedimento.verifica(procedimento);
     }
 
     public Paciente getPaciente() {
@@ -57,20 +45,20 @@ public class Consulta {
     }
 
     public double valorConsulta() {
-        double total=0;
-        for(int i = 0; i<this.listaProcedimento.size(); i++) {
-            total = total + this.listaProcedimento.get(i).getPreco();
+        double totalConsulta=0;
+        for(Procedimento procedimento : listaProcedimento.getLista()) {
+            totalConsulta = totalConsulta + procedimento.getPreco();
         }
-        return total;
+        return totalConsulta;
     }
 
     public String getDescricao() {
-        String consultas = new String();
-        for(int i = 0; i<this.listaProcedimento.size(); i++) {
-            consultas = this.listaProcedimento.get(i).getNome() + ", " + consultas;
+        String listaConsultas = new String();
+        for(Procedimento procedimento : listaProcedimento.getLista()) {
+            listaConsultas = procedimento.getNome() + ", " + listaConsultas;
         }
-        return consultas + "para o paciente: " + this.paciente.getNome() +
-                " realizada pelo Dr(a): " + this.dentista.getNome();
+        return listaConsultas + "para o " + this.paciente.getTratamento() +
+                " realizada pelo/a " + this.dentista.getTratamento();
     }
 
 }

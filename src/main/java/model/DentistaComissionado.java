@@ -4,20 +4,25 @@ import exceptions.ErroComissao;
 
 public class DentistaComissionado extends Dentista {
     private double porcentagemComissao;
-    private double salario=0;
 
     public DentistaComissionado(String nome, String email, String cro, double porcentagemComissao, boolean sexo) {
         super(nome, email, cro, sexo);
         try {
             setPorcentagemComissao(porcentagemComissao);
         }catch (ErroComissao e){
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
     }
 
-    public DentistaComissionado(Dentista dentista) {
-        super(dentista.nome, dentista.email, dentista.cro, dentista.sexo);
-        this.porcentagemComissao = 0.3;
+    public DentistaComissionado(String nome, String email, String cro, double porcentagemComissao,
+                                boolean sexo, String codigo) {
+        super(nome, email, cro, sexo);
+        this.codigo = codigo;
+        try {
+            setPorcentagemComissao(porcentagemComissao);
+        }catch (ErroComissao e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public double getSalario(){
@@ -36,9 +41,14 @@ public class DentistaComissionado extends Dentista {
         return true;
     }
 
+    public String getTipoDentista() {
+        return "É um Dentista Comissionado";
+    }
+
     @Override
     public Dentista getDentista(){
-        return new DentistaComissionado(this.nome, this.email, this.cro, this.porcentagemComissao, this.sexo);
+        return new DentistaComissionado(this.nome, this.email, this.cro, this.porcentagemComissao,
+                this.sexo, this.codigo);
     }
 }
 

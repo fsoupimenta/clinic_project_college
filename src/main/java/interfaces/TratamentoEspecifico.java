@@ -1,7 +1,7 @@
 package interfaces;
 
 public interface TratamentoEspecifico {
-    public default String getTratamento() {
+    default String getTratamento() {
         return null;
     }
 }

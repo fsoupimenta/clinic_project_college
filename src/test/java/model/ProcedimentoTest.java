@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 class ProcedimentoTest {
 
     @Test
-    void checkDescription() {
-        Procedimento x1 =
+    public void checkDescription() {
+        Procedimento procedimento_I =
                 new Procedimento("Tratamento de Canal", 800);
-        Assertions.assertEquals(x1.getDescricao(), "Tratamento de Canal -Preco: 800.0R$");
+        Assertions.assertEquals(procedimento_I.getDescricao(), "Tratamento de Canal -Preco: R$800.0");
     }
 }

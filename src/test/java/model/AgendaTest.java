@@ -10,105 +10,107 @@ import java.time.LocalDate;
 
 class AgendaTest {
 
-    DentistaComissionado d1;
-    Paciente p1;
-    Procedimento x1;
-    Consulta c1;
-    Agenda a1;
+    DentistaComissionado dentista_I;
+    Paciente paciente_I;
+    Procedimento procedimento_I;
+    Consulta consulta_I;
+    Agenda agenda_I;
     @BeforeEach
     public void init() {
-        d1 =
+        dentista_I =
                 new DentistaComissionado("Rafael da Silva",
                         "rfsilva@email.com",
                         "1111", 0.3, true);
-        p1 = new Paciente("Jose da Silva",
+        paciente_I = new Paciente("Jose da Silva",
                 "jssilva@email.com",
                 LocalDate.of(2001, 04, 14), true);
-        x1 = new Procedimento("Tratamento de Canal", 45000);
-        c1 = new Consulta(d1, p1);
-        c1.addProcedimento(x1);
-        a1 = new Agenda();
-        a1.addConsulta(c1);
+        procedimento_I = new Procedimento("Tratamento de Canal", 45000);
+        consulta_I = new Consulta(dentista_I, paciente_I);
+        consulta_I.addProcedimento(procedimento_I);
+        agenda_I = new Agenda();
+        agenda_I.esvaziaLista();
+        agenda_I.addConsulta(consulta_I);
     }
 
     @Test
     public void checkAmountConsult() {
-        Assertions.assertEquals(a1.qtdConsultas(), 1);
+        Assertions.assertEquals(agenda_I.qtdConsultas(), 1);
     }
 
     @Test
     public void checkInvoicing() {
-        Assertions.assertEquals(a1.getFaturamento(), 0);
+        Assertions.assertEquals(agenda_I.getFaturamento(), 0);
     }
 
     @Test
     public void shouldExistConsult(){
-        Assertions.assertEquals(a1.verificaConsulta(c1), true);
+        Assertions.assertEquals(agenda_I.verificaConsulta(consulta_I), true);
     }
 
     @Test
     public void shouldNotExistConsult(){
-        a1.removeConsulta(c1);
-        Assertions.assertEquals(a1.verificaConsulta(c1), false);
+        agenda_I.removeConsulta(consulta_I);
+        Assertions.assertEquals(agenda_I.verificaConsulta(consulta_I), false);
     }
 
     @Test
-    public void shouldShow_NumberOfConsults(){
-        Assertions.assertEquals(a1.qtdConsultas(), 1);
+    public void shouldReturnPatientExpense(){
+        Assertions.assertEquals(Agenda.totalizaValorAoPaciente(paciente_I),
+                45000.0);
     }
 
     @Test
-    public void calculaGastos(){
-        Assertions.assertEquals(Agenda.totalizaValorAoPaciente(p1),
-                34499);
-    }
-
-    @Test
-    public void calculaComissao(){
-        Assertions.assertEquals(d1.getSalario(),
-                10349.699999999999);
+    public void shoulReturnDentistExpense(){
+        Assertions.assertEquals(Agenda.totalizaValorAoDentista(dentista_I),
+                45000.0);
     }
 
     @Test
     public void shouldOrderByPacientNameAZ(){
-        Paciente p2 = new Paciente("Bruno da Silva",
+        Paciente paciente_II = new Paciente("Bruno da Silva",
                 "jssilva@email.com",
                 LocalDate.of(2001, 04, 14), true);
-        Consulta c2 = new Consulta(d1, p2);
-        Paciente p3 = new Paciente("Alex", "a",
+        Consulta consulta_II = new Consulta(dentista_I, paciente_II);
+        Paciente paciente_III = new Paciente("Alex", "a",
                 LocalDate.of(2001, 04, 18), true);
-        Consulta c3 = new Consulta(d1, p3);
-        c3.addProcedimento(x1);
-        c2.addProcedimento(x1);
-        a1.addConsulta(c2);
-        a1.addConsulta(c3);
-        Assertions.assertEquals(a1.getListaOrdemPaciente(), "Alex " + "Bruno da Silva "+
-                "Jose da Silva ");
+        Consulta consulta_III = new Consulta(dentista_I, paciente_III);
+        consulta_III.addProcedimento(procedimento_I);
+        consulta_II.addProcedimento(procedimento_I);
+        agenda_I.addConsulta(consulta_II);
+        agenda_I.addConsulta(consulta_III);
+        Assertions.assertEquals(agenda_I.getListaOrdemPaciente(), "Alex" +
+                "\nValor para o doutor: 40500.0"+ "\nValor para Clinica: 94500.0" +
+                "\nBruno da Silva" + "\nValor para o doutor: 40500.0" +
+                "\nValor para Clinica: 94500.0" + "\nJose da Silva" +
+                "\nValor para o doutor: 40500.0" + "\nValor para Clinica: 94500.0\n");
     }
 
     @Test
     public void shouldOrderByDentistNameZA(){
-        DentistaComissionado d2 =
+        DentistaComissionado dentista_II =
                 new DentistaComissionado("Saulo da Silva",
                         "rfsilva@email.com",
                         "1111", 0.3, true);
-        Consulta c2 = new Consulta(d2, p1);
-        DentistaComissionado d3 =
+        Consulta consulta_II = new Consulta(dentista_II, paciente_I);
+        DentistaComissionado dentista_III =
                 new DentistaComissionado("Wendel da Silva",
                         "rfsilva@email.com",
                         "1111", 0.3, true);
-        Consulta c3 = new Consulta(d3, p1);
-        c3.addProcedimento(x1);
-        c2.addProcedimento(x1);
-        a1.addConsulta(c2);
-        a1.addConsulta(c3);
-        Assertions.assertEquals(a1.getListaOrdemDentista(), "Wendel da Silva " + "Saulo da Silva " +
-                "Rafael da Silva ");
+        Consulta consulta_III = new Consulta(dentista_III, paciente_I);
+        consulta_III.addProcedimento(procedimento_I);
+        consulta_II.addProcedimento(procedimento_I);
+        agenda_I.addConsulta(consulta_II);
+        agenda_I.addConsulta(consulta_III);
+        Assertions.assertEquals(agenda_I.getListaOrdemDentista(), "Dr. Wendel da Silva" +
+                "\nValor para o doutor: 13500.0"+ "\nValor para Clinica: 31500.0" +
+                "\nDr. Saulo da Silva" + "\nValor para o doutor: 13500.0" +
+                "\nValor para Clinica: 31500.0" + "\nDr. Rafael da Silva" +
+                "\nValor para o doutor: 13500.0" + "\nValor para Clinica: 31500.0\n");
     }
 
     @Test
-    public void shouldReturnA(){
-        ClassificaPaciente.classificaPaciente(p1);
-        Assertions.assertEquals(ClassificaPaciente.getClassificacao(p1.getNome()), "A");
+    public void shouldReturnPatientRating(){
+        ClassificaPaciente.classificaPaciente(paciente_I);
+        Assertions.assertEquals(ClassificaPaciente.getClassificacao(paciente_I), "A");
     }
 }
