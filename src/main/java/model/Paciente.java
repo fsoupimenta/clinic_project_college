@@ -40,12 +40,16 @@ public class Paciente extends Pessoa implements TratamentoEspecifico {
                 getDataDeNascimento().format(formatador);
     }
 
-    public String getTratamento(){
+    public String getTratamento() {
         String[] sobreNome = getNome().split(" ");
-        if(this.sexo){
+        if (this.sexo) {
             return "Senhor " + sobreNome[sobreNome.length - 1];
-        }else{
+        } else {
             return "Senhora " + sobreNome[sobreNome.length - 1];
         }
+    }
+
+    public static void setContador ( int contador){
+        proximoCodigo = contador;
     }
 }
